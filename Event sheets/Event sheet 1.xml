@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <comment>Linked with animation player 0 is normal, 1 is Fever</comment>
+        <variable constant="0" name="StatePlayer" sid="690034221862280" static="0" type="number">0</variable>
+        <variable constant="0" name="BillesFever" sid="810700894576807" static="0" type="number">0</variable>
+        <variable constant="0" name="Billes" sid="430117177921515" static="0" type="number">0</variable>
+        <event-block sid="426971054010827">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="448700523159631" type="System" />
+            </conditions>
+            <actions>
+                <action id="-6" name="Scroll to Y" sid="760485534311460" type="System">
+                    <param id="0" name="Y">Player.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="308415558852240" type="System">
+                    <param id="0" name="Variable">Billes</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="510306570166244" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="LineOfSight" id="0" name="Set range" sid="159705317025582" type="Player">
+                    <param id="0" name="Range">Player.Width</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="583015479106735" type="ScreenShaker">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>la collision entre bille grise et player n&apos;est prise en compte que si le player n&apos;est pas en fever (free barrières &lt;= 0) (ajouter condition dans le bloc 2)</comment>
+        <event-block sid="963925138241963">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="347783756074067" type="BallsEnnemy">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="793469078076118" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="494660014924613" type="BallsEnnemy" />
+                <action id="-13" name="Set boolean" sid="977831841918180" type="Player">
+                    <param id="0" name="Instance variable">HitByGreyBall</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="356628754561095" type="Player">
+                    <param id="0" name="Animation">&quot;hit&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="309262075323111" type="System">
+                    <param id="0" name="Variable">Billes</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="938544902218715" type="Score">
+                    <param id="0" name="Text">billes</param>
+                </action>
+                <action behavior="LineOfSight" id="0" name="Set range" sid="831533496539804" type="Player">
+                    <param id="0" name="Range">Player.Width</param>
+                </action>
+                <action id="-9" name="Set value" sid="288451775128095" type="System">
+                    <param id="0" name="Variable">BillesFever</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="915224877256932" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="597947955720818" type="Player">
+                    <param id="0" name="Instance variable">HitByGreyBall</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="970839086814102">
+            <conditions>
+                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="180292844826567" type="Player">
+                    <param id="0" name="Object">BallsBlue</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="281560629803244" type="BallsBlue">
+                    <param id="0" name="Acceleration">5000</param>
+                    <param id="1" name="X">Player.X</param>
+                    <param id="2" name="Y">Player.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Deux cas : player en fever (free barrières &gt; 0) et player pas en fever (else). Si fever, destroy billes grises à portée, si pas fever, comportement normal (attraction bille grise)</comment>
+        <event-block sid="359830934691217">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="763486920174734" type="BallsBlue">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="819100102487150" type="BallsBlue" />
+                <action id="-10" name="Add to" sid="186209762069909" type="System">
+                    <param id="0" name="Variable">Billes</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="697249567195347" type="Score">
+                    <param id="0" name="Text">billes</param>
+                </action>
+                <action behavior="LineOfSight" id="0" name="Set range" sid="597538297965710" type="Player">
+                    <param id="0" name="Range">Player.Width</param>
+                </action>
+                <action id="6" name="Stop" sid="504097771129408" type="Audio">
+                    <param id="0" name="Tag">&quot;Catch_bille&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="792932326999511" type="Audio">
+                    <param id="0" name="Audio file">Catch_bille</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-8</param>
+                    <param id="1" name="Tag (optional)">&quot;Catch_bille&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="375591764141964">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="265846821621191" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="972917447176164" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="931938952617987">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="456463148800365" type="System" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="115187917076883" type="Player">
+                    <param id="0" name="X">clamp(Player.X, Player.Width / 2, LayoutWidth - Player.Width / 2)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="171765638551576">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="415650059696900" type="Player">
+                    <param id="0" name="Object">SwapAreaTrigger</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="642992152056455" type="Background_01" />
+            </actions>
+        </event-block>
+        <variable comment="Temps arrivée avant animation " constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">3</variable>
+        <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
+            <sub-events>
+                <event-block sid="649533113273676">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="151697417540269" type="Player">
+                            <param id="0" name="Object">VictoryArea</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
+                            <param id="0" name="Layout">Layout 2</param>
+                        </action>
+                        <action id="6" name="Stop" sid="538693609533965" type="Audio">
+                            <param id="0" name="Tag">&quot;Music_loop&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="138668709443528" type="System">
+                            <param id="0" name="Seconds">TIME_FINAL</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Death when the player touch bottom game</comment>
+                <event-block sid="783829730322224">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="220856448866857" type="Player">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">scrolly+OriginalWindowHeight/2+32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="494756128256892" type="System" />
+                        <action id="-21" name="Reset global variables" sid="627693082768949" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="791203717009149" title="Score" />
+        <variable comment="Size Factor" constant="0" name="Scaling" sid="733055330299980" static="0" type="number">0.0008</variable>
+        <event-group description="" sid="952636839896471" title="Player">
+            <sub-events>
+                <comment>Deplacement player with mouse</comment>
+                <event-block sid="973375581601499">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="880388877511574" type="Touch" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Move_Angle" sid="904512010195242" static="0" type="number">0</variable>
+                        <event-block sid="653420872998524">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="584157899219563" type="System">
+                                    <param id="0" name="First value">distance(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">200 * dt</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="139112701834012" type="System">
+                                    <param id="0" name="Variable">Move_Angle</param>
+                                    <param id="1" name="Value">angle(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="904309732250214" type="Player">
+                                    <param id="0" name="X">Player.X + cos(Move_Angle) *200 *dt</param>
+                                    <param id="1" name="Y">Player.Y + sin(Move_Angle) *200 * dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="161541548534597">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="335809925298232" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="602055482026138" type="Player">
+                                    <param id="0" name="X">Touch.x</param>
+                                </action>
+                                <action id="-2" name="Set Y" sid="356951801060509" type="Player">
+                                    <param id="0" name="Y">Touch.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Player grows in  size considering his number of balls </comment>
+                <event-block sid="972362474113099">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="532042063166763" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="9" name="Set scale" sid="593399412854804" type="Player">
+                            <param id="0" name="Scale">clamp(0.03+(Scaling*billes), 0, 2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable comment="Number of balls needed to pass in fever mode" constant="1" name="FEVER_LIMIT_ACTIVATION" sid="808635154454505" static="0" type="number">10</variable>
+        <event-group description="" sid="966132598078007" title="FeverMode">
+            <sub-events>
+                <comment>End Behavior Fever</comment>
+                <comment>Check when player is in contact with GreyBalls if fever is on, so it destroys greyball or just catch them</comment>
+                <event-block sid="158459067065424">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="497908449110383" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">FEVER_LIMIT_ACTIVATION</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="628228699305508" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="130758373548759" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="844288174217934" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="805238476939268" type="Player">
+                            <param id="0" name="Animation">&quot;fever&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="742314128923961">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="813366982375196" type="Player">
+                            <param id="0" name="Object">BallsEnnemy</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>fever mode</comment>
+                        <event-block sid="161029146504671">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="407806789121722" type="System">
+                                    <param id="0" name="Variable">StatePlayer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="897264953731975" type="BallsEnnemy">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="937063046784044" type="BallsEnnemy">
+                                    <param id="0" name="Angle">angle(Player.X,Player.Y,BallsEnnemy.X,BallsEnnemy.Y)</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="859079917047485" type="BallsEnnemy">
+                                    <param id="0" name="Instance variable">Ejected</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="533901208791340">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="201927610062731" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="182678514326831" type="BallsEnnemy">
+                                    <param id="0" name="Acceleration">5000</param>
+                                    <param id="1" name="X">Player.X</param>
+                                    <param id="2" name="Y">Player.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Speed scroll faster</comment>
+                <event-block sid="897668410741273">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="880042411619873" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="424270012272411">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="111164753894409" type="Player">
+                                    <param id="0" name="Instance variable">feverOn</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="684097867418301" type="Audio">
+                                    <param id="0" name="Tag">&quot;Fever_mode&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="483609921010598" type="Audio">
+                                    <param id="0" name="Audio file">Fever_Mode</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-5</param>
+                                    <param id="1" name="Tag (optional)">&quot;Fever_Mode&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="280475491453253" title="Barrieres">
+            <sub-events>
+                <event-block sid="226118030690386">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="493944363430139" type="System">
+                            <param id="0" name="Object">Barriers</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="377164130258044" type="BlockText">
+                            <param id="0" name="Object">Barriers</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="850679810684673" type="BlockText">
+                            <param id="0" name="Text">Barriers.Value</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Quand destroy barrière, réduire statePlayer de 1 (ajouter free barrières - 1 à la suite de destroy), destroy toutes les billes derrière le joueur</comment>
+                        <event-block sid="530560789127531">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="822538430962776" type="Barriers">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">scrolly + 30</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="774290127755212" type="System">
+                                    <param id="0" name="Variable">Billes</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">Barriers.Value</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="980696762513664" type="Barriers" />
+                                <action id="-11" name="Subtract from" sid="527338860337495" type="System">
+                                    <param id="0" name="Variable">StatePlayer</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="225566886020576">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="399237189706666" type="System">
+                                            <param id="0" name="Object">BallsBlue</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="554490473904858">
+                                            <conditions>
+                                                <condition id="-2" name="Compare Y" sid="903543315543752" type="BallsBlue">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">Barriers.Y</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="120597248782579" type="BallsBlue" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="372796021532140">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="239005057779648" type="System">
+                                            <param id="0" name="Object">BallsEnnemy</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="301598186193470">
+                                            <conditions>
+                                                <condition id="-2" name="Compare Y" sid="586155152117466" type="BallsEnnemy">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">Barriers.Y</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="411415944843253" type="BallsEnnemy" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="395415074810357" title="Musique">
+            <sub-events>
+                <event-block sid="215806459980773">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="689556720425917" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="290036636613814" type="Audio">
+                            <param id="0" name="Tag">&quot;MainMusic&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="254859906642365" type="Audio">
+                            <param id="0" name="Audio file">MainMusic</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;MainMusic&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="476371725841180" title="Cheats">
+            <sub-events>
+                <event-block sid="635109888617450">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="564300786268381" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="796336062588409" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Value">FEVER_LIMIT_ACTIVATION</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="952015708182780">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="741949782193183" type="Keyboard">
+                            <param id="0" name="Key">88</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="166796295040243" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Pass in fever mode</comment>
+        <event-group description="" sid="811057141075333" title="Animation" />
+        <event-block sid="602117915856374">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="618653620806967" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="107547396126665" type="Player">
+                    <param id="0" name="Instance variable">feverOn</param>
+                </condition>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="518066944727836" type="Player">
+                    <param id="0" name="Instance variable">HitByGreyBall</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="650963597275206" type="Player">
+                    <param id="0" name="Animation">&quot;normal&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="767122066225747">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="231183363463113" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="357992600753424" type="Player">
+                    <param id="0" name="Instance variable">feverOn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="325047531096461" type="Player">
+                    <param id="0" name="Animation">&quot;feverEnd&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="442642004702883">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="214212191626969" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="212984937932794" type="Player">
+                    <param id="0" name="Instance variable">feverOn</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="885739601920466" type="Player">
+                    <param id="0" name="Animation">&quot;fever&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="312598115869852">
+            <conditions>
+                <condition id="4" name="On finished" sid="949504266687267" type="Player">
+                    <param id="0" name="Animation">&quot;feverEnd&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="461404707238027" type="Player">
+                    <param id="0" name="Instance variable">feverOn</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="808874517402855" title="EnnemyBalls" />
+        <event-block sid="973235543691931">
+            <conditions>
+                <condition id="-11" name="For Each" sid="375599947232581" type="System">
+                    <param id="0" name="Object">BallsEnnemy</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="670800548542355">
+                    <conditions>
+                        <condition id="-9" name="Is visible" sid="535574392353720" type="BallsEnnemy" />
+                        <condition id="-8" name="Is boolean instance variable set" sid="405553010273714" type="BallsEnnemy">
+                            <param id="0" name="Instance variable">Ejected</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="502718574055250" type="BallsEnnemy" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <variable constant="0" name="Speed_Normal" sid="820356287808766" static="0" type="number">35</variable>
+        <variable constant="0" name="Speed_Fever" sid="996035912068963" static="0" type="number">80</variable>
+        <event-group description="" sid="359904253855486" title="Camera">
+            <sub-events>
+                <event-block sid="187455889883362">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="172231243422429" type="ScreenShaker">
+                            <param id="0" name="Object">Barriers</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="299811463354559" type="ScreenShaker">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="250749988851218" type="ScreenShaker">
+                            <param id="0" name="Magnitude">2000</param>
+                            <param id="1" name="Duration">1</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                        <action disabled="1" id="-16" name="Wait" sid="325169665710245" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="985757608306778">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="134837996845361" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="176303383766715">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="814124878424265" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-6" name="Scroll to Y" sid="310510558752416" type="System">
+                            <param id="0" name="Y">scrolly - Speed_Normal * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="700029086661357">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="689235569903152" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-6" name="Scroll to Y" sid="240273663992098" type="System">
+                            <param id="0" name="Y">scrolly - Speed_Fever * dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
