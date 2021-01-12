@@ -98,6 +98,7 @@
                     </properties>
                     <instance-variables>
                         <Value>4</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1019,6 +1020,7 @@
                     </properties>
                     <instance-variables>
                         <Value>0</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1051,6 +1053,7 @@
                     </properties>
                     <instance-variables>
                         <Value>35</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1083,6 +1086,7 @@
                     </properties>
                     <instance-variables>
                         <Value>27</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1115,6 +1119,7 @@
                     </properties>
                     <instance-variables>
                         <Value>19</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">
@@ -1147,6 +1152,7 @@
                     </properties>
                     <instance-variables>
                         <Value>10</Value>
+                        <breakable>false</breakable>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Solid">

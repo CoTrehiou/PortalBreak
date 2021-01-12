@@ -372,6 +372,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="Value" sid="249309569780336" type="number" />
+                    <instance-variable name="breakable" sid="469423445985056" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Solid" sid="672089448998673">

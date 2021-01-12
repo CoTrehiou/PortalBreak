@@ -389,8 +389,8 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="980696762513664" type="Barriers" />
-                                <action id="-11" name="Subtract from" sid="527338860337495" type="System">
+                                <action disabled="1" id="-9" name="Destroy" sid="980696762513664" type="Barriers" />
+                                <action disabled="1" id="-11" name="Subtract from" sid="527338860337495" type="System">
                                     <param id="0" name="Variable">StatePlayer</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
@@ -412,7 +412,7 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-9" name="Destroy" sid="120597248782579" type="BallsBlue" />
+                                                <action disabled="1" id="-9" name="Destroy" sid="120597248782579" type="BallsBlue" />
                                             </actions>
                                         </event-block>
                                     </sub-events>
@@ -433,7 +433,7 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-9" name="Destroy" sid="411415944843253" type="BallsEnnemy" />
+                                                <action disabled="1" id="-9" name="Destroy" sid="411415944843253" type="BallsEnnemy" />
                                             </actions>
                                         </event-block>
                                     </sub-events>
@@ -482,6 +482,10 @@
                                             <param id="0" name="Animation">&quot;breakable&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
+                                        <action id="-13" name="Set boolean" sid="513270814247091" type="Barriers">
+                                            <param id="0" name="Instance variable">breakable</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block sid="931336458892803">
@@ -493,9 +497,34 @@
                                             <param id="0" name="Animation">&quot;normal&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
+                                        <action id="-13" name="Set boolean" sid="102452017746895" type="Barriers">
+                                            <param id="0" name="Instance variable">breakable</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment></comment>
+                <event-block sid="471081793953038">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="738322115890740" type="Barriers">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="548198418507699">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="727741277594035" type="Barriers">
+                                    <param id="0" name="Instance variable">breakable</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="754992596490150" type="Barriers" />
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -547,6 +576,29 @@
                             <param id="0" name="Variable">StatePlayer</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                    </actions>
+                </event-block>
+                <event-block sid="518510617444308">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="248457470908727" type="Keyboard">
+                            <param id="0" name="Key">86</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="893167055570647" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">Billes+10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="518668840069789">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="284822091019587" type="Keyboard">
+                            <param id="0" name="Key">66</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="322852822767790" type="System" />
                     </actions>
                 </event-block>
             </sub-events>
