@@ -442,6 +442,63 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="123316257885845">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="128866540453374" type="System">
+                            <param id="0" name="Object">Barriers</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="404686685276199">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="912884684314911" type="Player">
+                                    <param id="0" name="Instance variable">feverOn</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="169983589563667" type="Barriers">
+                                    <param id="0" name="Animation">&quot;breakable_fever&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="957547886305438">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="409384963039368" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="949955674986077">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="581369845159559" type="System">
+                                            <param id="0" name="Variable">Billes</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">Barriers.Value</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="505430317965241" type="Barriers">
+                                            <param id="0" name="Animation">&quot;breakable&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="931336458892803">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="972238735670372" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="903546441315914" type="Barriers">
+                                            <param id="0" name="Animation">&quot;normal&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="395415074810357" title="Musique">
