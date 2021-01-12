@@ -26,9 +26,8 @@
                 <action behavior="LineOfSight" id="0" name="Set range" sid="159705317025582" type="Player">
                     <param id="0" name="Range">Player.Width</param>
                 </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="583015479106735" type="ScreenShaker">
-                    <param id="0" name="Pin to">Player</param>
-                    <param id="1" name="Mode">1</param>
+                <action id="-2" name="Set Y" sid="645122507620701" type="ScreenShaker">
+                    <param id="0" name="Y">LayoutHeight - (OriginalWindowHeight / 2)</param>
                 </action>
             </actions>
         </event-block>
@@ -595,21 +594,15 @@
             <sub-events>
                 <event-block sid="187455889883362">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="172231243422429" type="ScreenShaker">
+                        <condition id="0" name="On collision with another object" sid="172231243422429" type="Player">
                             <param id="0" name="Object">Barriers</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="ScrollTo" id="1" name="Set enabled" sid="299811463354559" type="ScreenShaker">
-                            <param id="0" name="State">1</param>
-                        </action>
                         <action behavior="ScrollTo" id="0" name="Shake" sid="250749988851218" type="ScreenShaker">
-                            <param id="0" name="Magnitude">2000</param>
-                            <param id="1" name="Duration">1</param>
+                            <param id="0" name="Magnitude">8</param>
+                            <param id="1" name="Duration">0.4</param>
                             <param id="2" name="Mode">0</param>
-                        </action>
-                        <action disabled="1" id="-16" name="Wait" sid="325169665710245" type="System">
-                            <param id="0" name="Seconds">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -628,8 +621,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-6" name="Scroll to Y" sid="310510558752416" type="System">
-                            <param id="0" name="Y">scrolly - Speed_Normal * dt</param>
+                        <action id="-2" name="Set Y" sid="356397077012315" type="ScreenShaker">
+                            <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt</param>
                         </action>
                     </actions>
                 </event-block>
@@ -638,8 +631,8 @@
                         <condition id="-22" name="Else" sid="689235569903152" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-6" name="Scroll to Y" sid="240273663992098" type="System">
-                            <param id="0" name="Y">scrolly - Speed_Fever * dt</param>
+                        <action id="-2" name="Set Y" sid="675361395754807" type="ScreenShaker">
+                            <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt</param>
                         </action>
                     </actions>
                 </event-block>
