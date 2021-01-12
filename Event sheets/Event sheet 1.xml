@@ -31,51 +31,6 @@
                 </action>
             </actions>
         </event-block>
-        <comment>la collision entre bille grise et player n&apos;est prise en compte que si le player n&apos;est pas en fever (free barrières &lt;= 0) (ajouter condition dans le bloc 2)</comment>
-        <event-block sid="963925138241963">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="347783756074067" type="BallsEnnemy">
-                    <param id="0" name="Object">Player</param>
-                </condition>
-                <condition id="-14" name="Compare variable" sid="793469078076118" type="System">
-                    <param id="0" name="Variable">StatePlayer</param>
-                    <param id="1" name="Comparison">3</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="494660014924613" type="BallsEnnemy" />
-                <action id="-13" name="Set boolean" sid="977831841918180" type="Player">
-                    <param id="0" name="Instance variable">HitByGreyBall</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-                <action id="4" name="Set animation" sid="356628754561095" type="Player">
-                    <param id="0" name="Animation">&quot;hit&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="-11" name="Subtract from" sid="309262075323111" type="System">
-                    <param id="0" name="Variable">Billes</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-                <action id="0" name="Set text" sid="938544902218715" type="Score">
-                    <param id="0" name="Text">billes</param>
-                </action>
-                <action behavior="LineOfSight" id="0" name="Set range" sid="831533496539804" type="Player">
-                    <param id="0" name="Range">Player.Width</param>
-                </action>
-                <action id="-9" name="Set value" sid="288451775128095" type="System">
-                    <param id="0" name="Variable">BillesFever</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="-16" name="Wait" sid="915224877256932" type="System">
-                    <param id="0" name="Seconds">1</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="597947955720818" type="Player">
-                    <param id="0" name="Instance variable">HitByGreyBall</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="970839086814102">
             <conditions>
                 <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="180292844826567" type="Player">
@@ -90,7 +45,6 @@
                 </action>
             </actions>
         </event-block>
-        <comment>Deux cas : player en fever (free barrières &gt; 0) et player pas en fever (else). Si fever, destroy billes grises à portée, si pas fever, comportement normal (attraction bille grise)</comment>
         <event-block sid="359830934691217">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="763486920174734" type="BallsBlue">
@@ -136,26 +90,6 @@
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="931938952617987">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="456463148800365" type="System" />
-            </conditions>
-            <actions>
-                <action id="-1" name="Set X" sid="115187917076883" type="Player">
-                    <param id="0" name="X">clamp(Player.X, Player.Width / 2, LayoutWidth - Player.Width / 2)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="171765638551576">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="415650059696900" type="Player">
-                    <param id="0" name="Object">SwapAreaTrigger</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="642992152056455" type="Background_01" />
-            </actions>
         </event-block>
         <variable comment="Temps arrivée avant animation " constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">3</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
@@ -247,6 +181,16 @@
                     <actions>
                         <action id="9" name="Set scale" sid="593399412854804" type="Player">
                             <param id="0" name="Scale">clamp(0.03+(Scaling*billes), 0, 2)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="931938952617987">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="456463148800365" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="115187917076883" type="Player">
+                            <param id="0" name="X">clamp(Player.X, Player.Width / 2, LayoutWidth - Player.Width / 2)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -695,6 +639,50 @@
                         <action id="-9" name="Destroy" sid="502718574055250" type="BallsEnnemy" />
                     </actions>
                 </event-block>
+                <event-block sid="963925138241963">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="347783756074067" type="BallsEnnemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="793469078076118" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="494660014924613" type="BallsEnnemy" />
+                        <action id="-13" name="Set boolean" sid="977831841918180" type="Player">
+                            <param id="0" name="Instance variable">HitByGreyBall</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="356628754561095" type="Player">
+                            <param id="0" name="Animation">&quot;hit&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="309262075323111" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="938544902218715" type="Score">
+                            <param id="0" name="Text">billes</param>
+                        </action>
+                        <action behavior="LineOfSight" id="0" name="Set range" sid="831533496539804" type="Player">
+                            <param id="0" name="Range">Player.Width</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="288451775128095" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="915224877256932" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="597947955720818" type="Player">
+                            <param id="0" name="Instance variable">HitByGreyBall</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-block>
         <variable constant="0" name="Speed_Normal" sid="820356287808766" static="0" type="number">35</variable>
@@ -747,5 +735,19 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-group description="" sid="589510406365859" title="Area">
+            <sub-events>
+                <event-block sid="171765638551576">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="415650059696900" type="Player">
+                            <param id="0" name="Object">SwapAreaTrigger</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="642992152056455" type="Background_01" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
