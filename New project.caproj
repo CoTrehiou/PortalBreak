@@ -384,7 +384,7 @@
                 </container>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="normal" pingpong="0" repeatcount="1" repeatto="0" sid="258901866954754" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="1.03125" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Barrieres\Barrier.png">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Barrieres\Barrier.png">
                             <collision-poly>
                                 <point x="0.015625" y="0.03125" />
                                 <point x="0.5" y="0" />
@@ -422,6 +422,26 @@
                                 <point x="0.5" y="1" />
                                 <point x="0.0223214" y="0.84375" />
                                 <point x="0.00446429" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="4" loop="0" name="Explosion" pingpong="0" repeatcount="1" repeatto="0" sid="775084387668027" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.488889" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\Animation\animation\allSprites_default.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\Animation\animation\allSprites_default.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.507937" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\Animation\animation\allSprites_default.png">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.109375" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.509434" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\Animation\animation\allSprites_default.png">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="0.711538" />
+                                <point x="0" y="0.884615" />
                             </collision-poly>
                         </frame>
                     </animation>
