@@ -84,11 +84,11 @@
             <object-type name="Text_Win" sid="872899460880373">
                 <plugin id="Text" />
             </object-type>
-            <object-type name="BlockText" sid="375103943338680">
+            <object-type name="NumberBarrier" sid="375103943338680">
                 <plugin id="Text" />
                 <container>
                     <type>Barriers</type>
-                    <type>BlockText</type>
+                    <type>NumberBarrier</type>
                 </container>
             </object-type>
             <object-type name="Button" sid="799219620045318">
@@ -381,7 +381,7 @@
                 </behaviors>
                 <container>
                     <type>Barriers</type>
-                    <type>BlockText</type>
+                    <type>NumberBarrier</type>
                 </container>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="normal" pingpong="0" repeatcount="1" repeatto="0" sid="258901866954754" speed="5">
@@ -585,6 +585,12 @@
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
         </file-folder>
-        <file-folder name="Fonts" />
+        <file-folder name="Fonts">
+            <file name="alfaslabone-regular-demo.html" />
+            <file name="alfaslabone-regular-webfont.woff" />
+            <file name="alfaslabone-regular-webfont.woff2" />
+            <file name="generator_config.txt" />
+            <file name="stylesheet.css" />
+        </file-folder>
     </files-folder>
 </c2project>

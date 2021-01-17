@@ -29,6 +29,14 @@
                 <action id="-2" name="Set Y" sid="645122507620701" type="ScreenShaker">
                     <param id="0" name="Y">LayoutHeight - (OriginalWindowHeight / 2)</param>
                 </action>
+                <action id="5" name="Set web font" sid="531374441888132" type="NumberBarrier">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="341750448253228" type="Score">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="970839086814102">
@@ -385,11 +393,11 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-4" name="Set position to another object" sid="377164130258044" type="BlockText">
+                        <action id="-4" name="Set position to another object" sid="377164130258044" type="NumberBarrier">
                             <param id="0" name="Object">Barriers</param>
                             <param id="1" name="Image point (optional)">0</param>
                         </action>
-                        <action id="0" name="Set text" sid="850679810684673" type="BlockText">
+                        <action id="0" name="Set text" sid="850679810684673" type="NumberBarrier">
                             <param id="0" name="Text">Barriers.Value</param>
                         </action>
                     </actions>
