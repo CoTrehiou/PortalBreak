@@ -305,19 +305,11 @@
             <sub-events>
                 <event-block sid="226118030690386">
                     <conditions>
-                        <condition id="-11" name="For Each" sid="493944363430139" type="System">
+                        <condition disabled="1" id="-11" name="For Each" sid="493944363430139" type="System">
                             <param id="0" name="Object">Barriers</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-4" name="Set position to another object" sid="377164130258044" type="BlockText">
-                            <param id="0" name="Object">Barriers</param>
-                            <param id="1" name="Image point (optional)">0</param>
-                        </action>
-                        <action id="0" name="Set text" sid="850679810684673" type="BlockText">
-                            <param id="0" name="Text">Barriers.Value</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
                         <comment>Quand destroy barrière, réduire statePlayer de 1 (ajouter free barrières - 1 à la suite de destroy), destroy toutes les billes derrière le joueur</comment>
                         <event-block sid="530560789127531">
@@ -392,7 +384,15 @@
                             <param id="0" name="Object">Barriers</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="377164130258044" type="BlockText">
+                            <param id="0" name="Object">Barriers</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="850679810684673" type="BlockText">
+                            <param id="0" name="Text">Barriers.Value</param>
+                        </action>
+                    </actions>
                     <sub-events>
                         <event-block sid="404686685276199">
                             <conditions>
@@ -404,6 +404,10 @@
                                 <action id="4" name="Set animation" sid="169983589563667" type="Barriers">
                                     <param id="0" name="Animation">&quot;breakable_fever&quot;</param>
                                     <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="815595776495680" type="Barriers">
+                                    <param id="0" name="Instance variable">breakable</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -426,7 +430,7 @@
                                             <param id="0" name="Animation">&quot;breakable&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
-                                        <action id="-13" name="Set boolean" sid="513270814247091" type="Barriers">
+                                        <action id="-13" name="Set boolean" sid="887672332296550" type="Barriers">
                                             <param id="0" name="Instance variable">breakable</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
@@ -441,7 +445,7 @@
                                             <param id="0" name="Animation">&quot;normal&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
-                                        <action id="-13" name="Set boolean" sid="102452017746895" type="Barriers">
+                                        <action id="-13" name="Set boolean" sid="542963537189573" type="Barriers">
                                             <param id="0" name="Instance variable">breakable</param>
                                             <param id="1" name="Value">0</param>
                                         </action>
@@ -454,21 +458,32 @@
                 <comment></comment>
                 <event-block sid="471081793953038">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="738322115890740" type="Barriers">
-                            <param id="0" name="Object">Player</param>
+                        <condition id="0" name="On collision with another object" sid="738322115890740" type="Player">
+                            <param id="0" name="Object">Barriers</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
                         <event-block sid="548198418507699">
                             <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="727741277594035" type="Barriers">
+                                <condition id="-8" name="Is boolean instance variable set" sid="569939325265920" type="Barriers">
                                     <param id="0" name="Instance variable">breakable</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="754992596490150" type="Barriers" />
+                                <action id="-9" name="Destroy" sid="704213586742864" type="Barriers" />
+                                <action id="0" name="Spawn another object" sid="867650554342190" type="Barriers">
+                                    <param id="0" name="Object">Explosion</param>
+                                    <param id="1" name="Layer">02</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
                             </actions>
+                        </event-block>
+                        <event-block sid="733093176239210">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="381846150719610" type="System" />
+                            </conditions>
+                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>

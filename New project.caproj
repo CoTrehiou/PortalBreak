@@ -372,7 +372,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="Value" sid="249309569780336" type="number" />
-                    <instance-variable name="breakable" sid="469423445985056" type="boolean" />
+                    <instance-variable name="breakable" sid="629308666365108" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Solid" sid="672089448998673">
@@ -434,15 +434,15 @@
                                 <point x="0" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="1" />
-                                <point x="0.109375" y="1" />
+                                <point x="0.015625" y="1" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.509434" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\Animation\animation\allSprites_default.png">
                             <collision-poly>
                                 <point x="0" y="0" />
                                 <point x="1" y="0" />
-                                <point x="1" y="0.711538" />
-                                <point x="0" y="0.884615" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -466,6 +466,61 @@
                                 <point x="0.96875" y="0.96875" />
                                 <point x="0.5" y="1" />
                                 <point x="0.03125" y="0.96875" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Explosion" sid="986823442780511">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="4" loop="0" name="Explosion" pingpong="0" repeatcount="1" repeatto="0" sid="921854607275684" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Animation\animation\Debut_explose.png">
+                            <collision-poly>
+                                <point x="0.206897" y="0.214286" />
+                                <point x="0.5" y="0" />
+                                <point x="0.827586" y="0.178571" />
+                                <point x="0.982759" y="0.5" />
+                                <point x="0.827586" y="0.821429" />
+                                <point x="0.5" y="1" />
+                                <point x="0.206897" y="0.785714" />
+                                <point x="0.0344828" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.507937" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Animation\animation\2eme.png">
+                            <collision-poly>
+                                <point x="0.09375" y="0.0952381" />
+                                <point x="0.5" y="0" />
+                                <point x="0.921875" y="0.0793651" />
+                                <point x="1" y="0.492063" />
+                                <point x="0.921875" y="0.920635" />
+                                <point x="0.5" y="1" />
+                                <point x="0.09375" y="0.904762" />
+                                <point x="0" y="0.492063" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.511111" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Animation\animation\3eme.png">
+                            <collision-poly>
+                                <point x="0.173913" y="0.177778" />
+                                <point x="0.5" y="0" />
+                                <point x="0.891304" y="0.111111" />
+                                <point x="1" y="0.488889" />
+                                <point x="0.869565" y="0.866667" />
+                                <point x="0.5" y="0.977778" />
+                                <point x="0.152174" y="0.844444" />
+                                <point x="0.0217391" y="0.488889" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.509434" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Animation\animation\4eme.png">
+                            <collision-poly>
+                                <point x="0.169811" y="0.173077" />
+                                <point x="0.490566" y="0" />
+                                <point x="0.830189" y="0.173077" />
+                                <point x="1" y="0.5" />
+                                <point x="0.830189" y="0.826923" />
+                                <point x="0.490566" y="1" />
+                                <point x="0.113208" y="0.884615" />
                                 <point x="0" y="0.5" />
                             </collision-poly>
                         </frame>
