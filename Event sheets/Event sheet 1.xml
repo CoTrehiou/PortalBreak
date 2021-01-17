@@ -471,12 +471,12 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="704213586742864" type="Barriers" />
                                 <action id="0" name="Spawn another object" sid="867650554342190" type="Barriers">
                                     <param id="0" name="Object">Explosion</param>
-                                    <param id="1" name="Layer">02</param>
+                                    <param id="1" name="Layer">01</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
+                                <action id="-9" name="Destroy" sid="704213586742864" type="Barriers" />
                             </actions>
                         </event-block>
                         <event-block sid="733093176239210">
