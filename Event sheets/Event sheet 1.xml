@@ -3,10 +3,27 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
-        <comment>Linked with animation player 0 is normal, 1 is Fever</comment>
         <variable constant="0" name="StatePlayer" sid="690034221862280" static="0" type="number">0</variable>
         <variable constant="0" name="BillesFever" sid="810700894576807" static="0" type="number">0</variable>
         <variable constant="0" name="Billes" sid="430117177921515" static="0" type="number">0</variable>
+        <event-group description="" sid="395415074810357" title="Musique">
+            <sub-events>
+                <event-block sid="215806459980773">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="689556720425917" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="290036636613814" type="Audio" />
+                        <action id="0" name="Play" sid="254859906642365" type="Audio">
+                            <param id="0" name="Audio file">MainMusic</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;main&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-block sid="426971054010827">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="448700523159631" type="System" />
@@ -112,7 +129,7 @@
                         <action id="-2" name="Go to layout" sid="601297029285744" type="System">
                             <param id="0" name="Layout">Layout 2</param>
                         </action>
-                        <action id="6" name="Stop" sid="538693609533965" type="Audio">
+                        <action disabled="1" id="6" name="Stop" sid="538693609533965" type="Audio">
                             <param id="0" name="Tag">&quot;Music_loop&quot;</param>
                         </action>
                         <action id="-16" name="Wait" sid="138668709443528" type="System">
@@ -234,6 +251,15 @@
                             <param id="0" name="Animation">&quot;fever&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
+                        <action id="6" name="Stop" sid="557201911414585" type="Audio">
+                            <param id="0" name="Tag">&quot;main&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="227725449692213" type="Audio">
+                            <param id="0" name="Audio file">Fever</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;fever&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="742314128923961">
@@ -281,13 +307,13 @@
                     </sub-events>
                 </event-block>
                 <comment>Speed scroll faster</comment>
-                <event-block sid="897668410741273">
+                <event-block disabled="1" sid="897668410741273">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="880042411619873" type="System" />
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="424270012272411">
+                        <event-block disabled="1" sid="424270012272411">
                             <conditions>
                                 <condition id="-8" name="Is boolean instance variable set" sid="111164753894409" type="Player">
                                     <param id="0" name="Instance variable">feverOn</param>
@@ -301,7 +327,7 @@
                                     <param id="0" name="Audio file">Fever_Mode</param>
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">-5</param>
-                                    <param id="1" name="Tag (optional)">&quot;Fever_Mode&quot;</param>
+                                    <param id="1" name="Tag (optional)">&quot;fever&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -497,26 +523,6 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="395415074810357" title="Musique">
-            <sub-events>
-                <event-block sid="215806459980773">
-                    <conditions>
-                        <condition id="-2" name="On start of layout" sid="689556720425917" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="6" name="Stop" sid="290036636613814" type="Audio">
-                            <param id="0" name="Tag">&quot;MainMusic&quot;</param>
-                        </action>
-                        <action id="0" name="Play" sid="254859906642365" type="Audio">
-                            <param id="0" name="Audio file">MainMusic</param>
-                            <param id="2" name="Loop">1</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;MainMusic&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-group>
         <event-group description="" sid="476371725841180" title="Cheats">
             <sub-events>
                 <event-block sid="635109888617450">
@@ -639,6 +645,15 @@
                 <action id="-13" name="Set boolean" sid="461404707238027" type="Player">
                     <param id="0" name="Instance variable">feverOn</param>
                     <param id="1" name="Value">0</param>
+                </action>
+                <action id="6" name="Stop" sid="721042047104519" type="Audio">
+                    <param id="0" name="Tag">&quot;fever&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="131587853438275" type="Audio">
+                    <param id="0" name="Audio file">MainMusic</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;main&quot;</param>
                 </action>
             </actions>
         </event-block>
