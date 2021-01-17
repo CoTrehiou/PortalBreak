@@ -101,6 +101,7 @@
                 <instance-variables>
                     <instance-variable name="HitByGreyBall" sid="367283565387848" type="boolean" />
                     <instance-variable name="feverOn" sid="655995371071105" type="boolean" />
+                    <instance-variable name="victory" sid="490900793054715" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="887668094060732">
@@ -352,6 +353,30 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="325953145651190" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="C:\Users\soulq\Desktop\Project_Contruct\Sprite\png\ballBlue.png">
+                            <collision-poly>
+                                <point x="0.136364" y="0.136364" />
+                                <point x="0.5" y="0" />
+                                <point x="0.863636" y="0.136364" />
+                                <point x="1" y="0.5" />
+                                <point x="0.863636" y="0.863636" />
+                                <point x="0.5" y="1" />
+                                <point x="0.136364" y="0.863636" />
+                                <point x="0" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="BillesVictory" sid="253769719645598">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Bullet" sid="634669674388416">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="418117602728754" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Megaport\Documents\Portal Break\PortalBreak\Asset\images\billes-sheet0.png">
                             <collision-poly>
                                 <point x="0.136364" y="0.136364" />
                                 <point x="0.5" y="0" />

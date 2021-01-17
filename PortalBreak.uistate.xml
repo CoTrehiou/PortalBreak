@@ -27,7 +27,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="object-folder/Background/" />
         <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="0" path="object-folder/Player/" />
-        <folder expanded="0" path="object-folder/Billes/" />
+        <folder expanded="1" path="object-folder/Billes/" />
         <folder expanded="0" path="object-folder/Barriers/" />
         <folder expanded="0" path="object-folder/Utilities/" />
         <folder expanded="0" path="layout-folder/" />
@@ -41,6 +41,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/ScreenShaker/" />
         <folder expanded="1" path="animation-folder/BallsEnnemy/" />
         <folder expanded="1" path="animation-folder/BallsBlue/" />
+        <folder expanded="1" path="animation-folder/BillesVictory/" />
         <folder expanded="1" path="animation-folder/Barriers/" />
         <folder expanded="1" path="animation-folder/Little_Block/" />
         <folder expanded="1" path="animation-folder/Explosion/" />

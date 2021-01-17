@@ -116,7 +116,10 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <variable comment="Temps arrivée avant animation " constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">5</variable>
+        <variable comment="Temps apres animation" constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">1</variable>
+        <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.1</variable>
+        <variable constant="0" name="DELAY_VICTORY_ANIMATION" sid="112573490542906" static="0" type="number">1.5</variable>
+        <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">10</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
             <sub-events>
                 <event-block sid="649533113273676">
@@ -134,10 +137,11 @@
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
                         </action>
                         <action id="-16" name="Wait" sid="138668709443528" type="System">
-                            <param id="0" name="Seconds">TIME_FINAL</param>
+                            <param id="0" name="Seconds">DELAY_VICTORY_ANIMATION</param>
                         </action>
-                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
-                            <param id="0" name="Layout">Layout 2</param>
+                        <action id="-13" name="Set boolean" sid="503622452422866" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -152,6 +156,58 @@
                     <actions>
                         <action id="-26" name="Restart layout" sid="494756128256892" type="System" />
                         <action id="-21" name="Reset global variables" sid="627693082768949" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="488335478483818">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="914091044072662" type="System">
+                            <param id="0" name="Interval (seconds)">FREQUENCY_ANIMATION_VICTORY</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="582163192278141" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="800284699473011" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Rotate clockwise" sid="717810428046300" type="Player">
+                            <param id="0" name="Degrees">ROTATION_VICTORY</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="946743648869063" type="Player">
+                            <param id="0" name="Object">BillesVictory</param>
+                            <param id="1" name="Layer">01</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="913229436949333" type="BillesVictory">
+                            <param id="0" name="Angle">angle(Player.X,Player.Y,BillesVictory.X,BillesVictory.Y)</param>
+                        </action>
+                        <action id="-11" name="Subtract from" sid="178663358238301" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="786091686406335">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="302462673043724" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="167551100825067" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="668724961636830" type="System">
+                            <param id="0" name="Seconds">TIME_FINAL</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
+                            <param id="0" name="Layout">Layout 2</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
