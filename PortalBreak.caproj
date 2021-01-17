@@ -576,6 +576,7 @@
     <music-folder>
         <file name="MainMusic.ogg" />
         <file name="Fever.ogg" />
+        <file name="Victory.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

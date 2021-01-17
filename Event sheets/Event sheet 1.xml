@@ -116,7 +116,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <variable comment="Temps arrivée avant animation " constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">3</variable>
+        <variable comment="Temps arrivée avant animation " constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">5</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
             <sub-events>
                 <event-block sid="649533113273676">
@@ -126,14 +126,18 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
-                            <param id="0" name="Layout">Layout 2</param>
-                        </action>
-                        <action disabled="1" id="6" name="Stop" sid="538693609533965" type="Audio">
-                            <param id="0" name="Tag">&quot;Music_loop&quot;</param>
+                        <action id="33" name="Stop all" sid="538693609533965" type="Audio" />
+                        <action id="0" name="Play" sid="557803410533271" type="Audio">
+                            <param id="0" name="Audio file">Victory</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
                         </action>
                         <action id="-16" name="Wait" sid="138668709443528" type="System">
                             <param id="0" name="Seconds">TIME_FINAL</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
+                            <param id="0" name="Layout">Layout 2</param>
                         </action>
                     </actions>
                 </event-block>
@@ -301,33 +305,6 @@
                                     <param id="0" name="Acceleration">5000</param>
                                     <param id="1" name="X">Player.X</param>
                                     <param id="2" name="Y">Player.Y</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <comment>Speed scroll faster</comment>
-                <event-block disabled="1" sid="897668410741273">
-                    <conditions>
-                        <condition id="-1" name="Every tick" sid="880042411619873" type="System" />
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block disabled="1" sid="424270012272411">
-                            <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="111164753894409" type="Player">
-                                    <param id="0" name="Instance variable">feverOn</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="6" name="Stop" sid="684097867418301" type="Audio">
-                                    <param id="0" name="Tag">&quot;Fever_mode&quot;</param>
-                                </action>
-                                <action id="0" name="Play" sid="483609921010598" type="Audio">
-                                    <param id="0" name="Audio file">Fever_Mode</param>
-                                    <param id="2" name="Loop">0</param>
-                                    <param id="3" name="Volume">-5</param>
-                                    <param id="1" name="Tag (optional)">&quot;fever&quot;</param>
                                 </action>
                             </actions>
                         </event-block>
