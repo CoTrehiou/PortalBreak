@@ -463,6 +463,11 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="307378489086914" type="ScreenShaker">
+                                    <param id="0" name="Magnitude">8</param>
+                                    <param id="1" name="Duration">0.4</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="867650554342190" type="Barriers">
                                     <param id="0" name="Object">Explosion</param>
                                     <param id="1" name="Layer">01</param>
@@ -683,6 +688,7 @@
         </event-block>
         <variable constant="0" name="Speed_Normal" sid="820356287808766" static="0" type="number">35</variable>
         <variable constant="0" name="Speed_Fever" sid="996035912068963" static="0" type="number">80</variable>
+        <variable constant="1" name="Coeff_Billes_Speed" sid="445296025486735" static="0" type="number">0.01</variable>
         <event-group description="" sid="359904253855486" title="Camera">
             <sub-events>
                 <event-block sid="187455889883362">
@@ -715,7 +721,7 @@
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="356397077012315" type="ScreenShaker">
-                            <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt</param>
+                            <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -725,7 +731,7 @@
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="675361395754807" type="ScreenShaker">
-                            <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt</param>
+                            <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
                         </action>
                     </actions>
                 </event-block>
