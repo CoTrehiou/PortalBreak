@@ -94,6 +94,25 @@
             <object-type name="Button" sid="799219620045318">
                 <plugin id="Button" />
             </object-type>
+            <object-type name="ScoreBilleBlue" sid="288585603205784">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="450003500535890" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\billes-sheet0.png">
+                            <collision-poly>
+                                <point x="0.227564" y="0.227564" />
+                                <point x="0.5" y="0.139423" />
+                                <point x="0.737981" y="0.262019" />
+                                <point x="0.83093" y="0.5" />
+                                <point x="0.742788" y="0.742788" />
+                                <point x="0.5" y="0.891026" />
+                                <point x="0.201923" y="0.798077" />
+                                <point x="0.0793269" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Player">
             <object-type name="Player" sid="772320668461050">
