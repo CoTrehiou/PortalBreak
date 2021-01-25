@@ -6,6 +6,36 @@
         <variable constant="0" name="StatePlayer" sid="690034221862280" static="0" type="number">0</variable>
         <variable constant="0" name="BillesFever" sid="810700894576807" static="0" type="number">0</variable>
         <variable constant="0" name="Billes" sid="430117177921515" static="0" type="number">0</variable>
+        <variable comment="Speed when billes go to score" constant="1" name="SPEEDLERPSCORE" sid="508704092806491" static="0" type="number">0.5</variable>
+        <event-group description="" sid="791203717009149" title="Score">
+            <sub-events>
+                <event-block sid="113524516494415">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="416496237665753" type="Player">
+                            <param id="0" name="Object">BallsBlue</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="338522479525495" type="Player">
+                            <param id="0" name="Object">BilleCollectedFeedback</param>
+                            <param id="1" name="Layer">01</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="396751628937105">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="299280316966995" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="779114795392111" type="BilleCollectedFeedback">
+                            <param id="0" name="X">lerp(BilleCollectedFeedback.X, ScoreBilleBlue.X, 1 - (ScoreBilleBlue.X - BilleCollectedFeedback.X))</param>
+                            <param id="1" name="Y">lerp(BilleCollectedFeedback.Y, ScoreBilleBlue.Y, SPEEDLERPSCORE)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="395415074810357" title="Musique">
             <sub-events>
                 <event-block sid="215806459980773">
@@ -212,7 +242,6 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="791203717009149" title="Score" />
         <variable comment="Size Factor" constant="0" name="Scaling" sid="733055330299980" static="0" type="number">0.0008</variable>
         <event-group description="" sid="952636839896471" title="Player">
             <sub-events>
