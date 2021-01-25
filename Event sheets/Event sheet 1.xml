@@ -59,6 +59,32 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="438723904917459">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="757381526917194" type="Player">
+                            <param id="0" name="Object">BallsEnnemy</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="307233429583477" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="821945143466585" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="888917144948941" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="296090851002616" type="Score">
+                            <param id="0" name="Text">billes</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-block sid="359830934691217">
@@ -190,9 +216,6 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
-                        </action>
-                        <action disabled="1" id="-16" name="Wait" sid="138668709443528" type="System">
-                            <param id="0" name="Seconds">DELAY_VICTORY_ANIMATION</param>
                         </action>
                     </actions>
                 </event-block>
@@ -716,13 +739,6 @@
                         <action id="4" name="Set animation" sid="356628754561095" type="Player">
                             <param id="0" name="Animation">&quot;hit&quot;</param>
                             <param id="1" name="From">1</param>
-                        </action>
-                        <action id="-11" name="Subtract from" sid="309262075323111" type="System">
-                            <param id="0" name="Variable">Billes</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="938544902218715" type="Score">
-                            <param id="0" name="Text">billes</param>
                         </action>
                         <action behavior="LineOfSight" id="0" name="Set range" sid="831533496539804" type="Player">
                             <param id="0" name="Range">Player.Width</param>
