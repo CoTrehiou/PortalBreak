@@ -173,10 +173,17 @@
                 <event-block sid="649533113273676">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="151697417540269" type="Player">
-                            <param id="0" name="Object">VictoryArea</param>
+                            <param id="0" name="Object">VictoryTrigger</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="724341243251668" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-13" name="Set boolean" sid="503622452422866" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                         <action id="33" name="Stop all" sid="538693609533965" type="Audio" />
                         <action id="0" name="Play" sid="557803410533271" type="Audio">
                             <param id="0" name="Audio file">Victory</param>
@@ -184,12 +191,8 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
                         </action>
-                        <action id="-16" name="Wait" sid="138668709443528" type="System">
+                        <action disabled="1" id="-16" name="Wait" sid="138668709443528" type="System">
                             <param id="0" name="Seconds">DELAY_VICTORY_ANIMATION</param>
-                        </action>
-                        <action id="-13" name="Set boolean" sid="503622452422866" type="Player">
-                            <param id="0" name="Instance variable">victory</param>
-                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -278,6 +281,9 @@
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Second value">200 * dt</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="499695250300737" type="Player">
+                                    <param id="0" name="Instance variable">victory</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="139112701834012" type="System">
@@ -293,6 +299,9 @@
                         <event-block sid="161541548534597">
                             <conditions>
                                 <condition id="-22" name="Else" sid="335809925298232" type="System" />
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="341317500837452" type="Player">
+                                    <param id="0" name="Instance variable">victory</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-1" name="Set X" sid="602055482026138" type="Player">
