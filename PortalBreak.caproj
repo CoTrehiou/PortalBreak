@@ -18,7 +18,6 @@
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
-        <plugin author="Scirra" id="progressbar" version="1">Progress bar</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -75,9 +74,6 @@
             </object-type>
         </object-folder>
         <object-folder name="UI">
-            <object-type name="ProgressBar" sid="192531449990166">
-                <plugin id="progressbar" />
-            </object-type>
             <object-type name="Score" sid="955846917714182">
                 <plugin id="Text" />
             </object-type>
@@ -98,16 +94,16 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="450003500535890" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\billes-sheet0.png">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Megaport\Documents\Portal Break\PortalBreak\Asset\images\boulepixelart_bonus.png">
                             <collision-poly>
-                                <point x="0.227564" y="0.227564" />
-                                <point x="0.5" y="0.139423" />
-                                <point x="0.737981" y="0.262019" />
-                                <point x="0.83093" y="0.5" />
-                                <point x="0.742788" y="0.742788" />
-                                <point x="0.5" y="0.891026" />
-                                <point x="0.201923" y="0.798077" />
-                                <point x="0.0793269" y="0.5" />
+                                <point x="0.14095" y="0.165064" />
+                                <point x="0.484252" y="0.030048" />
+                                <point x="0.840343" y="0.121394" />
+                                <point x="0.972662" y="0.453125" />
+                                <point x="0.92389" y="0.797476" />
+                                <point x="0.515748" y="0.961339" />
+                                <point x="0.0680647" y="0.821514" />
+                                <point x="0.0163348" y="0.476563" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -131,7 +127,7 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="542892595413838" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\billes-sheet0.png">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Megaport\Documents\Portal Break\PortalBreak\Asset\images\boulepixelart_bonus.png">
                             <collision-poly>
                                 <point x="0.136364" y="0.136364" />
                                 <point x="0.5" y="0" />
