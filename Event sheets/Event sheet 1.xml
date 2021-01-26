@@ -191,9 +191,9 @@
             </actions>
         </event-block>
         <variable comment="Temps apres animation" constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">1</variable>
-        <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.1</variable>
+        <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.07</variable>
         <variable constant="0" name="DELAY_VICTORY_ANIMATION" sid="112573490542906" static="0" type="number">1.5</variable>
-        <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">10</variable>
+        <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">25</variable>
         <variable constant="0" name="Distance_Victory" sid="202888707378164" static="0" type="number">15</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
             <sub-events>
