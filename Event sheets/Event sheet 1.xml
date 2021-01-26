@@ -218,6 +218,9 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
                         </action>
+                        <action id="-16" name="Wait" sid="523152186275792" type="System">
+                            <param id="0" name="Seconds">DELAY_VICTORY_ANIMATION</param>
+                        </action>
                         <action id="-13" name="Set boolean" sid="224426658323996" type="Player">
                             <param id="0" name="Instance variable">moving</param>
                             <param id="1" name="Value">0</param>
@@ -230,11 +233,6 @@
                         <condition id="-2" name="Compare Y" sid="220856448866857" type="Player">
                             <param id="0" name="Comparison">5</param>
                             <param id="1" name="Y co-ordinate">scrolly+OriginalWindowHeight/2+32</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="301471136013599" type="System">
-                            <param id="0" name="First value">distance(VictoryTrigger.X, VictoryTrigger.Y, Player.X, Player.Y)</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Second value">Distance_Victory</param>
                         </condition>
                     </conditions>
                     <actions>
