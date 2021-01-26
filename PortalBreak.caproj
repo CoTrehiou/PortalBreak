@@ -150,6 +150,7 @@
                     <instance-variable name="HitByGreyBall" sid="367283565387848" type="boolean" />
                     <instance-variable name="feverOn" sid="655995371071105" type="boolean" />
                     <instance-variable name="victory" sid="490900793054715" type="boolean" />
+                    <instance-variable name="moving" sid="230013568585168" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="887668094060732">

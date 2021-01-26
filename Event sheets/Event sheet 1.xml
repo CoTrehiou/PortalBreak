@@ -194,12 +194,15 @@
         <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.1</variable>
         <variable constant="0" name="DELAY_VICTORY_ANIMATION" sid="112573490542906" static="0" type="number">1.5</variable>
         <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">10</variable>
+        <variable constant="0" name="Distance_Victory" sid="202888707378164" static="0" type="number">15</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
             <sub-events>
                 <event-block sid="649533113273676">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="151697417540269" type="Player">
-                            <param id="0" name="Object">VictoryTrigger</param>
+                        <condition id="-8" name="Compare two values" sid="151697417540269" type="System">
+                            <param id="0" name="First value">distance(VictoryTrigger.X, VictoryTrigger.Y, Player.X, Player.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">Distance_Victory</param>
                         </condition>
                         <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="724341243251668" type="Player">
                             <param id="0" name="Instance variable">victory</param>
@@ -216,6 +219,10 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="224426658323996" type="Player">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -297,43 +304,47 @@
                     <actions />
                     <sub-events>
                         <variable constant="0" name="Move_Angle" sid="904512010195242" static="0" type="number">0</variable>
-                        <event-block sid="653420872998524">
+                        <event-block sid="754743556225129">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="584157899219563" type="System">
-                                    <param id="0" name="First value">distance(Player.X, Player.Y, Touch.X, Touch.Y)</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Second value">200 * dt</param>
-                                </condition>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="499695250300737" type="Player">
-                                    <param id="0" name="Instance variable">victory</param>
+                                <condition id="-8" name="Is boolean instance variable set" sid="705193601401701" type="Player">
+                                    <param id="0" name="Instance variable">moving</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="139112701834012" type="System">
-                                    <param id="0" name="Variable">Move_Angle</param>
-                                    <param id="1" name="Value">angle(Player.X, Player.Y, Touch.X, Touch.Y)</param>
-                                </action>
-                                <action id="-3" name="Set position" sid="904309732250214" type="Player">
-                                    <param id="0" name="X">Player.X + cos(Move_Angle) *200 *dt</param>
-                                    <param id="1" name="Y">Player.Y + sin(Move_Angle) *200 * dt</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="161541548534597">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="335809925298232" type="System" />
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="341317500837452" type="Player">
-                                    <param id="0" name="Instance variable">victory</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-1" name="Set X" sid="602055482026138" type="Player">
-                                    <param id="0" name="X">Touch.x</param>
-                                </action>
-                                <action id="-2" name="Set Y" sid="356951801060509" type="Player">
-                                    <param id="0" name="Y">Touch.Y</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="653420872998524">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="584157899219563" type="System">
+                                            <param id="0" name="First value">distance(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">200 * dt</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="139112701834012" type="System">
+                                            <param id="0" name="Variable">Move_Angle</param>
+                                            <param id="1" name="Value">angle(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="904309732250214" type="Player">
+                                            <param id="0" name="X">Player.X + cos(Move_Angle) *200 *dt</param>
+                                            <param id="1" name="Y">Player.Y + sin(Move_Angle) *200 * dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="161541548534597">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="335809925298232" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="602055482026138" type="Player">
+                                            <param id="0" name="X">Touch.x</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="356951801060509" type="Player">
+                                            <param id="0" name="Y">Touch.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>

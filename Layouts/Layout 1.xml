@@ -81,7 +81,7 @@
                         <y>0</y>
                         <z>0</z>
                         <width>224</width>
-                        <height>288</height>
+                        <height>336</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -975,6 +975,7 @@
                         <HitByGreyBall>false</HitByGreyBall>
                         <feverOn>false</feverOn>
                         <victory>false</victory>
+                        <moving>true</moving>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -4249,7 +4250,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>112</x>
-                        <y>96</y>
+                        <y>144</y>
                         <z>0</z>
                         <width>224</width>
                         <height>16</height>
