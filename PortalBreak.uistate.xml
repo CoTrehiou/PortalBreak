@@ -27,17 +27,17 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="0" path="object-folder/Background/" />
         <folder expanded="0" path="object-folder/UI/" />
         <folder expanded="0" path="object-folder/Player/" />
-        <folder expanded="1" path="object-folder/Billes/" />
+        <folder expanded="0" path="object-folder/Billes/" />
         <folder expanded="0" path="object-folder/Barriers/" />
         <folder expanded="0" path="object-folder/Utilities/" />
         <folder expanded="0" path="object-folder/Victory/" />
         <folder expanded="0" path="layout-folder/" />
         <folder expanded="0" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
-        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="sound-folder/" />
         <folder expanded="0" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
-        <folder expanded="1" path="file-folder/Fonts/" />
+        <folder expanded="0" path="file-folder/Fonts/" />
         <folder expanded="1" path="animation-folder/ScoreBilleBlue/" />
         <folder expanded="1" path="animation-folder/BilleCollectedFeedback/" />
         <folder expanded="1" path="animation-folder/Player/" />

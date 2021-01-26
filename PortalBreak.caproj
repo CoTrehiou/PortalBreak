@@ -655,6 +655,14 @@
     <sounds-folder>
         <file name="Catch_bille.ogg" />
         <file name="Fever_Mode.ogg" />
+        <file name="Barrier_Explosion.ogg" />
+        <file name="317752__jalastram__sfx-explosion-07.ogg" />
+        <file name="368591__josepharaoh99__retro-explosion.ogg" />
+        <file name="barrier_explosion_2.ogg" />
+        <file name="506825__mrthenoronha__explosion-2-8-bit.ogg" />
+        <file name="507137__mrthenoronha__machine-gun-2-8-bit.ogg" />
+        <file name="512660__mrthenoronha__destruction-8-bit.ogg" />
+        <file name="512661__mrthenoronha__destruction-2-8-bit.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="MainMusic.ogg" />

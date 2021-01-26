@@ -558,6 +558,12 @@
                                     <param id="1" name="Duration">0.4</param>
                                     <param id="2" name="Mode">0</param>
                                 </action>
+                                <action id="0" name="Play" sid="157016091844769" type="Audio">
+                                    <param id="0" name="Audio file">barrier_explosion_2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;explosion_barrier&quot;</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="867650554342190" type="Barriers">
                                     <param id="0" name="Object">Explosion</param>
                                     <param id="1" name="Layer">01</param>
