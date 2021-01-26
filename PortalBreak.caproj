@@ -290,29 +290,29 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\boulepixelart_player.png">
                             <collision-poly>
-                                <point x="0.21875" y="0.21875" />
-                                <point x="0.5" y="0.125" />
-                                <point x="0.75" y="0.25" />
-                                <point x="0.84375" y="0.5" />
-                                <point x="0.75" y="0.75" />
-                                <point x="0.5" y="0.90625" />
-                                <point x="0.1875" y="0.8125" />
-                                <point x="0.0625" y="0.5" />
+                                <point x="0.219311" y="0.219311" />
+                                <point x="0.5" y="0.125749" />
+                                <point x="0.749501" y="0.250499" />
+                                <point x="0.843064" y="0.5" />
+                                <point x="0.749501" y="0.749501" />
+                                <point x="0.5" y="0.905439" />
+                                <point x="0.188124" y="0.811876" />
+                                <point x="0.0633733" y="0.5" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Megaport\Documents\Portal Break\PortalBreak\Asset\images\boulepixelart_player.png">
                             <collision-poly>
-                                <point x="0.21875" y="0.21875" />
-                                <point x="0.5" y="0.125" />
-                                <point x="0.75" y="0.25" />
-                                <point x="0.84375" y="0.5" />
-                                <point x="0.75" y="0.75" />
-                                <point x="0.5" y="0.90625" />
-                                <point x="0.1875" y="0.8125" />
-                                <point x="0.0625" y="0.5" />
+                                <point x="0.125" y="0.125" />
+                                <point x="0.5" y="0" />
+                                <point x="0.875" y="0.125" />
+                                <point x="1" y="0.5" />
+                                <point x="0.875" y="0.875" />
+                                <point x="0.5" y="1" />
+                                <point x="0.125" y="0.875" />
+                                <point x="0" y="0.5" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Papouboy\Documents\Construct 2\PortalBreak\Asset\images\Animation\sprite_0.png">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Megaport\Documents\Portal Break\PortalBreak\Asset\images\boulepixelart_player.png">
                             <collision-poly>
                                 <point x="0.21875" y="0.21875" />
                                 <point x="0.5" y="0.125" />
