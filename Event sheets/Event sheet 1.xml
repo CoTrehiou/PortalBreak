@@ -6,6 +6,126 @@
         <variable constant="0" name="StatePlayer" sid="690034221862280" static="0" type="number">0</variable>
         <variable constant="0" name="BillesFever" sid="810700894576807" static="0" type="number">0</variable>
         <variable constant="0" name="Billes" sid="430117177921515" static="0" type="number">0</variable>
+        <variable comment="Speed when billes go to score" constant="1" name="SPEEDLERP" sid="508704092806491" static="0" type="number">0.2</variable>
+        <variable constant="1" name="DistanceDestroyFeedbackScore" sid="870440160888392" static="0" type="number">16</variable>
+        <event-group description="" sid="791203717009149" title="Score">
+            <sub-events>
+                <event-block sid="113524516494415">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="416496237665753" type="Player">
+                            <param id="0" name="Object">BallsBlue</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="356890879114741" type="System">
+                            <param id="0" name="Object to create">BilleCollectedFeedback</param>
+                            <param id="1" name="Layer">&quot;UI&quot;</param>
+                            <param id="2" name="X">CanvasToLayerX(&quot;UI&quot;, LayerToCanvasX(&quot;Objects&quot;, BallsBlue.X, BallsBlue.Y), LayerToCanvasY(&quot;Objects&quot;, BallsBlue.X, BallsBlue.Y))</param>
+                            <param id="3" name="Y">CanvasToLayerY(&quot;UI&quot;, LayerToCanvasX(&quot;Objects&quot;, BallsBlue.X, BallsBlue.Y), LayerToCanvasY(&quot;Objects&quot;, BallsBlue.X, BallsBlue.Y))</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="186209762069909" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="697249567195347" type="Score">
+                            <param id="0" name="Text">Billes</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="396751628937105">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="299280316966995" type="System">
+                            <param id="0" name="Object">BilleCollectedFeedback</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="779114795392111" type="BilleCollectedFeedback">
+                            <param id="0" name="X">lerp(BilleCollectedFeedback.X, ScoreBilleBlue.X, dt * (1/SPEEDLERP))</param>
+                            <param id="1" name="Y">lerp(BilleCollectedFeedback.Y, ScoreBilleBlue.Y,dt * (1/SPEEDLERP))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="909575717426193">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="921647216427912" type="System">
+                                    <param id="0" name="First value">distance(ScoreBilleBlue.X, ScoreBilleBlue.Y, BilleCollectedFeedback.X, BilleCollectedFeedback.Y)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">DISTANCEDESTROYFEEDBACKSCORE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="195277119607370" type="BilleCollectedFeedback" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="438723904917459">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="757381526917194" type="Player">
+                            <param id="0" name="Object">BallsEnnemy</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="307233429583477" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="821945143466585" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="888917144948941" type="System">
+                            <param id="0" name="Variable">Billes</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="296090851002616" type="Score">
+                            <param id="0" name="Text">billes</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="359830934691217">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="763486920174734" type="BallsBlue">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="819100102487150" type="BallsBlue" />
+                <action behavior="LineOfSight" id="0" name="Set range" sid="597538297965710" type="Player">
+                    <param id="0" name="Range">Player.Width</param>
+                </action>
+                <action id="6" name="Stop" sid="504097771129408" type="Audio">
+                    <param id="0" name="Tag">&quot;Catch_bille&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="792932326999511" type="Audio">
+                    <param id="0" name="Audio file">Catch_bille</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-8</param>
+                    <param id="1" name="Tag (optional)">&quot;Catch_bille&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="375591764141964">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="265846821621191" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="972917447176164" type="System">
+                            <param id="0" name="Variable">BillesFever</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-group description="" sid="395415074810357" title="Musique">
             <sub-events>
                 <event-block sid="215806459980773">
@@ -70,65 +190,27 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="359830934691217">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="763486920174734" type="BallsBlue">
-                    <param id="0" name="Object">Player</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="819100102487150" type="BallsBlue" />
-                <action id="-10" name="Add to" sid="186209762069909" type="System">
-                    <param id="0" name="Variable">Billes</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-                <action id="0" name="Set text" sid="697249567195347" type="Score">
-                    <param id="0" name="Text">billes</param>
-                </action>
-                <action behavior="LineOfSight" id="0" name="Set range" sid="597538297965710" type="Player">
-                    <param id="0" name="Range">Player.Width</param>
-                </action>
-                <action id="6" name="Stop" sid="504097771129408" type="Audio">
-                    <param id="0" name="Tag">&quot;Catch_bille&quot;</param>
-                </action>
-                <action id="0" name="Play" sid="792932326999511" type="Audio">
-                    <param id="0" name="Audio file">Catch_bille</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">-8</param>
-                    <param id="1" name="Tag (optional)">&quot;Catch_bille&quot;</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block sid="375591764141964">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="265846821621191" type="System">
-                            <param id="0" name="Variable">StatePlayer</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Add to" sid="972917447176164" type="System">
-                            <param id="0" name="Variable">BillesFever</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
         <variable comment="Temps apres animation" constant="1" name="TIME_FINAL" sid="642071750454270" static="0" type="number">1</variable>
-        <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.1</variable>
+        <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY" sid="787052621120844" static="0" type="number">0.07</variable>
         <variable constant="0" name="DELAY_VICTORY_ANIMATION" sid="112573490542906" static="0" type="number">1.5</variable>
-        <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">10</variable>
+        <variable constant="0" name="ROTATION_VICTORY" sid="949248862237945" static="0" type="number">25</variable>
+        <variable constant="0" name="Distance_Victory" sid="202888707378164" static="0" type="number">15</variable>
         <event-group description="" sid="177652585467680" title="Victory/ Win Conditions">
             <sub-events>
                 <event-block sid="649533113273676">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="151697417540269" type="Player">
-                            <param id="0" name="Object">VictoryArea</param>
+                        <condition id="1" name="Is overlapping another object" sid="151697417540269" type="Player">
+                            <param id="0" name="Object">VictoryTrigger</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="724341243251668" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-13" name="Set boolean" sid="503622452422866" type="Player">
+                            <param id="0" name="Instance variable">victory</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                         <action id="33" name="Stop all" sid="538693609533965" type="Audio" />
                         <action id="0" name="Play" sid="557803410533271" type="Audio">
                             <param id="0" name="Audio file">Victory</param>
@@ -136,12 +218,12 @@
                             <param id="3" name="Volume">0</param>
                             <param id="1" name="Tag (optional)">&quot;victory&quot;</param>
                         </action>
-                        <action id="-16" name="Wait" sid="138668709443528" type="System">
+                        <action id="-16" name="Wait" sid="523152186275792" type="System">
                             <param id="0" name="Seconds">DELAY_VICTORY_ANIMATION</param>
                         </action>
-                        <action id="-13" name="Set boolean" sid="503622452422866" type="Player">
-                            <param id="0" name="Instance variable">victory</param>
-                            <param id="1" name="Value">1</param>
+                        <action id="-13" name="Set boolean" sid="224426658323996" type="Player">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -212,7 +294,6 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="791203717009149" title="Score" />
         <variable comment="Size Factor" constant="0" name="Scaling" sid="733055330299980" static="0" type="number">0.0008</variable>
         <event-group description="" sid="952636839896471" title="Player">
             <sub-events>
@@ -224,37 +305,47 @@
                     <actions />
                     <sub-events>
                         <variable constant="0" name="Move_Angle" sid="904512010195242" static="0" type="number">0</variable>
-                        <event-block sid="653420872998524">
+                        <event-block sid="754743556225129">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="584157899219563" type="System">
-                                    <param id="0" name="First value">distance(Player.X, Player.Y, Touch.X, Touch.Y)</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Second value">200 * dt</param>
+                                <condition id="-8" name="Is boolean instance variable set" sid="705193601401701" type="Player">
+                                    <param id="0" name="Instance variable">moving</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="139112701834012" type="System">
-                                    <param id="0" name="Variable">Move_Angle</param>
-                                    <param id="1" name="Value">angle(Player.X, Player.Y, Touch.X, Touch.Y)</param>
-                                </action>
-                                <action id="-3" name="Set position" sid="904309732250214" type="Player">
-                                    <param id="0" name="X">Player.X + cos(Move_Angle) *200 *dt</param>
-                                    <param id="1" name="Y">Player.Y + sin(Move_Angle) *200 * dt</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="161541548534597">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="335809925298232" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-1" name="Set X" sid="602055482026138" type="Player">
-                                    <param id="0" name="X">Touch.x</param>
-                                </action>
-                                <action id="-2" name="Set Y" sid="356951801060509" type="Player">
-                                    <param id="0" name="Y">Touch.Y</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="653420872998524">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="584157899219563" type="System">
+                                            <param id="0" name="First value">distance(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">200 * dt</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="139112701834012" type="System">
+                                            <param id="0" name="Variable">Move_Angle</param>
+                                            <param id="1" name="Value">angle(Player.X, Player.Y, Touch.X, Touch.Y)</param>
+                                        </action>
+                                        <action id="-3" name="Set position" sid="904309732250214" type="Player">
+                                            <param id="0" name="X">Player.X + cos(Move_Angle) *200 *dt</param>
+                                            <param id="1" name="Y">Player.Y + sin(Move_Angle) *200 * dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="161541548534597">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="335809925298232" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="602055482026138" type="Player">
+                                            <param id="0" name="X">Touch.x</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="356951801060509" type="Player">
+                                            <param id="0" name="Y">Touch.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -468,12 +559,22 @@
                                     <param id="1" name="Duration">0.4</param>
                                     <param id="2" name="Mode">0</param>
                                 </action>
+                                <action id="0" name="Play" sid="157016091844769" type="Audio">
+                                    <param id="0" name="Audio file">barrier_explosion_2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;explosion_barrier&quot;</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="867650554342190" type="Barriers">
                                     <param id="0" name="Object">Explosion</param>
                                     <param id="1" name="Layer">01</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
                                 <action id="-9" name="Destroy" sid="704213586742864" type="Barriers" />
+                                <action id="-11" name="Subtract from" sid="763572360281881" type="System">
+                                    <param id="0" name="Variable">StatePlayer</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="733093176239210">
@@ -661,12 +762,11 @@
                             <param id="0" name="Animation">&quot;hit&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
-                        <action id="-11" name="Subtract from" sid="309262075323111" type="System">
-                            <param id="0" name="Variable">Billes</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="938544902218715" type="Score">
-                            <param id="0" name="Text">billes</param>
+                        <action id="0" name="Play" sid="189315622858840" type="Audio">
+                            <param id="0" name="Audio file">hit</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                         <action behavior="LineOfSight" id="0" name="Set range" sid="831533496539804" type="Player">
                             <param id="0" name="Range">Player.Width</param>
