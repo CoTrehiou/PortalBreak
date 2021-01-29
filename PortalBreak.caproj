@@ -72,6 +72,10 @@
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
+            <object-type name="SwapAreaTrigger" sid="744287984894579">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="UI">
             <object-type name="Score" sid="955846917714182">
@@ -326,10 +330,6 @@
                         </frame>
                     </animation>
                 </animation-folder>
-            </object-type>
-            <object-type name="SwapAreaTrigger" sid="744287984894579">
-                <plugin id="TiledBg" />
-                <texture />
             </object-type>
             <object-type name="ScreenShaker" sid="195476194919080">
                 <plugin id="Sprite" />
