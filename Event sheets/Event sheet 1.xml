@@ -869,9 +869,7 @@
         <event-group description="" sid="651495888608988" title="FTUE" />
         <event-block sid="296601092637670">
             <conditions>
-                <condition id="3" name="On touched object" sid="675150864939170" type="Touch">
-                    <param id="0" name="Object">TextFTUE</param>
-                </condition>
+                <condition id="14" name="On tap" sid="675150864939170" type="Touch" />
             </conditions>
             <actions>
                 <action id="-13" name="Set boolean" sid="587930008321668" type="TextFTUE">
