@@ -146,6 +146,12 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="TextFTUE" sid="339259859757462">
+                <plugin id="Text" />
+                <instance-variables>
+                    <instance-variable name="enabled" sid="573293625274124" type="boolean" />
+                </instance-variables>
+            </object-type>
         </object-folder>
         <object-folder name="Player">
             <object-type name="Player" sid="772320668461050">

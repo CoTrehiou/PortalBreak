@@ -174,6 +174,10 @@
                     <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
                     <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
                 </action>
+                <action id="5" name="Set web font" sid="139309407639381" type="TextFTUE">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="970839086814102">
@@ -807,33 +811,44 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <comment>While textFTUE is not enabled, camera doesn&apos;t move</comment>
         <event-block sid="985757608306778">
             <conditions>
                 <condition id="-1" name="Every tick" sid="134837996845361" type="System" />
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="176303383766715">
+                <event-block sid="543410852319023">
                     <conditions>
-                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="814124878424265" type="Player">
-                            <param id="0" name="Instance variable">feverOn</param>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="981233626585445" type="TextFTUE">
+                            <param id="0" name="Instance variable">enabled</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="356397077012315" type="ScreenShaker">
-                            <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="700029086661357">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="689235569903152" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="675361395754807" type="ScreenShaker">
-                            <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="176303383766715">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="814124878424265" type="Player">
+                                    <param id="0" name="Instance variable">feverOn</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="356397077012315" type="ScreenShaker">
+                                    <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="700029086661357">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="689235569903152" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="675361395754807" type="ScreenShaker">
+                                    <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -851,5 +866,22 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="651495888608988" title="FTUE" />
+        <event-block sid="296601092637670">
+            <conditions>
+                <condition id="3" name="On touched object" sid="675150864939170" type="Touch">
+                    <param id="0" name="Object">TextFTUE</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="587930008321668" type="TextFTUE">
+                    <param id="0" name="Instance variable">enabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="654365806358311" type="TextFTUE">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
