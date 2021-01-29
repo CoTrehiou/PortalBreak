@@ -176,18 +176,6 @@
                         </frame>
                     </animation>
                     <animation framecount="3" loop="0" name="hit" pingpong="0" repeatcount="1" repeatto="0" sid="527793696107255" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\boulepixelart_enemy.png">
-                            <collision-poly>
-                                <point x="0.134766" y="0.115234" />
-                                <point x="0.5" y="0" />
-                                <point x="0.867188" y="0.126953" />
-                                <point x="1" y="0.5" />
-                                <point x="0.882813" y="0.867188" />
-                                <point x="0.503906" y="0.994141" />
-                                <point x="0.125" y="0.863281" />
-                                <point x="0.0078125" y="0.492188" />
-                            </collision-poly>
-                        </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\boulepixelart_player.png">
                             <collision-poly>
                                 <point x="0.125" y="0.125" />
@@ -200,7 +188,7 @@
                                 <point x="0" y="0.5" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\soulq\Documents\PortalBreak\Asset\images\boulepixelart_enemy.png">
                             <collision-poly>
                                 <point x="0.134766" y="0.115234" />
                                 <point x="0.5" y="0" />
@@ -210,6 +198,18 @@
                                 <point x="0.503906" y="0.994141" />
                                 <point x="0.125" y="0.863281" />
                                 <point x="0.0078125" y="0.492188" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.125" y="0.125" />
+                                <point x="0.5" y="0" />
+                                <point x="0.875" y="0.125" />
+                                <point x="1" y="0.5" />
+                                <point x="0.875" y="0.875" />
+                                <point x="0.5" y="1" />
+                                <point x="0.125" y="0.875" />
+                                <point x="0" y="0.5" />
                             </collision-poly>
                         </frame>
                     </animation>
