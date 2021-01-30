@@ -10,10 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="1">Layout 1</layout>
-        <layout order="3">Layout 2</layout>
-        <event-sheet order="2">Event sheet 1</event-sheet>
-        <event-sheet order="4">Event sheet 2</event-sheet>
+        <layout active="1" order="0">Layout 1</layout>
+        <layout order="2">Layout 2</layout>
+        <event-sheet order="1">Event sheet 1</event-sheet>
+        <event-sheet order="3">Event sheet 2</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -24,11 +24,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1" />
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="1" path="object-folder/Background/" />
+        <folder expanded="0" path="object-folder/Background/" />
         <folder expanded="0" path="object-folder/UI/" />
-        <folder expanded="1" path="object-folder/Player/" />
-        <folder expanded="0" path="object-folder/Billes/" />
-        <folder expanded="0" path="object-folder/Barriers/" />
+        <folder expanded="0" path="object-folder/Player/" />
+        <folder expanded="1" path="object-folder/Billes/" />
+        <folder expanded="1" path="object-folder/Barriers/" />
         <folder expanded="0" path="object-folder/Utilities/" />
         <folder expanded="0" path="object-folder/Victory/" />
         <folder expanded="0" path="layout-folder/" />
