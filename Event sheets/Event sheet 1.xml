@@ -790,9 +790,9 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <variable constant="0" name="Speed_Normal" sid="820356287808766" static="0" type="number">35</variable>
-        <variable constant="0" name="Speed_Fever" sid="996035912068963" static="0" type="number">80</variable>
-        <variable constant="1" name="Coeff_Billes_Speed" sid="445296025486735" static="0" type="number">0.01</variable>
+        <variable constant="0" name="Speed_Normal" sid="820356287808766" static="0" type="number">40</variable>
+        <variable constant="0" name="Speed_Fever" sid="996035912068963" static="0" type="number">60</variable>
+        <variable constant="1" name="COEFF_BILLES_SPEED" sid="445296025486735" static="0" type="number">0.06</variable>
         <event-group description="" sid="359904253855486" title="Camera">
             <sub-events>
                 <event-block sid="187455889883362">

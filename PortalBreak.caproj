@@ -630,6 +630,7 @@
     <layout-folder>
         <layout>Layout 1.xml</layout>
         <layout>Layout 2.xml</layout>
+        <layout>Layout 3.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
