@@ -3,13 +3,44 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 2</name>
     <events>
+        <event-block sid="195573474679764">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="727014704406606" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="570808502258654" type="Audio" />
+                <action id="0" name="Play" sid="683893645347155" type="Audio">
+                    <param id="0" name="Audio file">MainMusic</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;main&quot;</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="697933132494755">
             <conditions>
-                <condition id="0" name="On clicked" sid="778743876056436" type="Button" />
+                <condition id="17" name="On tap object" sid="778743876056436" type="Touch">
+                    <param id="0" name="Object">StartText</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-2" name="Go to layout" sid="118460350817684" type="System">
                     <param id="0" name="Layout">Layout 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="464432388247236">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="841990961532038" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set web font" sid="340380248706247" type="Title">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="800455635310504" type="StartText">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
                 </action>
             </actions>
         </event-block>

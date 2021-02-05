@@ -8,6 +8,21 @@
         <variable constant="0" name="Billes" sid="430117177921515" static="0" type="number">0</variable>
         <variable comment="Speed when billes go to score" constant="1" name="SPEEDLERP" sid="508704092806491" static="0" type="number">0.2</variable>
         <variable constant="1" name="DistanceDestroyFeedbackScore" sid="870440160888392" static="0" type="number">16</variable>
+        <event-group description="" sid="651495888608988" title="FTUE" />
+        <event-block sid="296601092637670">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="675150864939170" type="Touch" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="587930008321668" type="TextFTUE">
+                    <param id="0" name="Instance variable">enabled</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="654365806358311" type="TextFTUE">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-group description="" sid="791203717009149" title="Score">
             <sub-events>
                 <event-block sid="113524516494415">
@@ -292,7 +307,7 @@
                             <param id="0" name="Seconds">TIME_FINAL</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="601297029285744" type="System">
-                            <param id="0" name="Layout">Layout 2</param>
+                            <param id="0" name="Layout">Layout 3</param>
                         </action>
                     </actions>
                 </event-block>
@@ -866,20 +881,5 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="651495888608988" title="FTUE" />
-        <event-block sid="296601092637670">
-            <conditions>
-                <condition id="14" name="On tap" sid="675150864939170" type="Touch" />
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="587930008321668" type="TextFTUE">
-                    <param id="0" name="Instance variable">enabled</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="654365806358311" type="TextFTUE">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-            </actions>
-        </event-block>
     </events>
 </c2eventsheet>

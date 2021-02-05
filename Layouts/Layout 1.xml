@@ -4300,7 +4300,7 @@
                 </instance>
                 <instance type="TextFTUE" uid="104">
                     <properties>
-                        <text>Click on the ball to move it, collect greens balls and avoid red balls to breaks barriers</text>
+                        <text>Click on the screen to move it, collect greens balls and avoid red balls to breaks barriers</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-16</font>
                         <color>0,0,0</color>

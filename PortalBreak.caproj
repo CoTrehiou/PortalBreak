@@ -24,6 +24,7 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -81,7 +82,7 @@
             <object-type name="Score" sid="955846917714182">
                 <plugin id="Text" />
             </object-type>
-            <object-type name="Text_Win" sid="872899460880373">
+            <object-type name="Title" sid="872899460880373">
                 <plugin id="Text" />
             </object-type>
             <object-type name="NumberBarrier" sid="375103943338680">
@@ -91,8 +92,13 @@
                     <type>NumberBarrier</type>
                 </container>
             </object-type>
-            <object-type name="Button" sid="799219620045318">
+            <object-type name="StartButton" sid="799219620045318">
                 <plugin id="Button" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="648247257951289">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
             </object-type>
             <object-type name="ScoreBilleBlue" sid="288585603205784">
                 <plugin id="Sprite" />
@@ -151,6 +157,14 @@
                 <instance-variables>
                     <instance-variable name="enabled" sid="573293625274124" type="boolean" />
                 </instance-variables>
+            </object-type>
+            <object-type name="StartText" sid="737154112282719">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="886773363392190">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
             </object-type>
         </object-folder>
         <object-folder name="Player">
@@ -625,6 +639,14 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-type name="Starter" sid="394904417323363">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="275233658977669" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -635,6 +657,7 @@
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
         <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>Event sheet 3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="1">

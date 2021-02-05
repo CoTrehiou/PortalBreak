@@ -2,7 +2,7 @@
 <c2layout>
     <name>Layout 3</name>
     <sid>687911885104422</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>Event sheet 3</event-sheet>
     <size>
         <width>224</width>
         <height>3000</height>
@@ -3108,36 +3108,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="TextFTUE" uid="205">
-                    <properties>
-                        <text>Click on the ball to move it, collect greens balls and avoid red balls to breaks barriers</text>
-                        <initial-visibility>Visible</initial-visibility>
-                        <font>Arial,-16</font>
-                        <color>0,0,0</color>
-                        <horizontal-alignment>Center</horizontal-alignment>
-                        <vertical-alignment>Center</vertical-alignment>
-                        <hotspot>Top-left</hotspot>
-                        <wrapping>Word</wrapping>
-                        <line-height>0</line-height>
-                    </properties>
-                    <instance-variables>
-                        <enabled>true</enabled>
-                    </instance-variables>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>0</x>
-                        <y>2768</y>
-                        <z>0</z>
-                        <width>224</width>
-                        <height>96</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="BallsEnnemy" uid="210">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -5053,6 +5023,36 @@
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="TextFTUE" uid="162">
+                    <properties>
+                        <text>Click on the screen to move it, collect greens balls and avoid red balls to breaks barriers</text>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <font>Arial,-16</font>
+                        <color>0,0,0</color>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <instance-variables>
+                        <enabled>true</enabled>
+                    </instance-variables>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>2768</y>
+                        <z>0</z>
+                        <width>224</width>
+                        <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
