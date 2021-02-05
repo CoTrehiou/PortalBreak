@@ -650,8 +650,8 @@
     </object-folder>
     <families />
     <layout-folder>
-        <layout>Layout 1.xml</layout>
         <layout>Layout 2.xml</layout>
+        <layout>Layout 1.xml</layout>
         <layout>Layout 3.xml</layout>
     </layout-folder>
     <event-folder>
