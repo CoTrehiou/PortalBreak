@@ -692,10 +692,11 @@
         <file name="hit.ogg" />
     </sounds-folder>
     <music-folder>
-        <file name="MainMusic.ogg" />
+        <file name="Level1.ogg" />
         <file name="Fever.ogg" />
         <file name="Victory.ogg" />
-        <file name="LoboLoco.ogg" />
+        <file name="MainMenu.ogg" />
+        <file name="Level2.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

@@ -150,7 +150,7 @@
                     <actions>
                         <action id="33" name="Stop all" sid="290036636613814" type="Audio" />
                         <action id="0" name="Play" sid="254859906642365" type="Audio">
-                            <param id="0" name="Audio file">MainMusic</param>
+                            <param id="0" name="Audio file">Level1</param>
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">-5</param>
                             <param id="1" name="Tag (optional)">&quot;main&quot;</param>
@@ -733,7 +733,7 @@
                     <param id="0" name="Tag">&quot;fever&quot;</param>
                 </action>
                 <action id="0" name="Play" sid="131587853438275" type="Audio">
-                    <param id="0" name="Audio file">MainMusic</param>
+                    <param id="0" name="Audio file">Level1</param>
                     <param id="2" name="Loop">1</param>
                     <param id="3" name="Volume">-5</param>
                     <param id="1" name="Tag (optional)">&quot;main&quot;</param>
