@@ -697,6 +697,7 @@
         <file name="Victory.ogg" />
         <file name="MainMenu.ogg" />
         <file name="Level2.ogg" />
+        <file name="choc_barriere.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">
