@@ -600,7 +600,14 @@
                             <conditions>
                                 <condition id="-22" name="Else" sid="381846150719610" type="System" />
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="0" name="Play" sid="402336669629440" type="Audio">
+                                    <param id="0" name="Audio file">choc_barriere</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
