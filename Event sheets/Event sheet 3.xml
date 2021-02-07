@@ -3,21 +3,74 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 3</name>
     <events>
-        <event-group description="" sid="766296014295479" title="FTUE2" />
-        <event-block sid="855706033314560">
+        <event-block sid="331225046842794">
             <conditions>
-                <condition id="0" name="On any touch start" sid="120363934129510" type="Touch" />
+                <condition id="-2" name="On start of layout" sid="834682183164983" type="System" />
             </conditions>
             <actions>
-                <action id="-13" name="Set boolean" sid="992150051004929" type="TextFTUE">
-                    <param id="0" name="Instance variable">enabled</param>
+                <action id="-6" name="Scroll to Y" sid="348416214864110" type="System">
+                    <param id="0" name="Y">Player.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="222751862069625" type="System">
+                    <param id="0" name="Variable">Billes</param>
                     <param id="1" name="Value">0</param>
                 </action>
-                <action id="-15" name="Set visible" sid="913644010880844" type="TextFTUE">
-                    <param id="0" name="Visibility">0</param>
+                <action id="-9" name="Set value" sid="886012924670378" type="System">
+                    <param id="0" name="Variable">StatePlayer</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action behavior="LineOfSight" id="0" name="Set range" sid="792337641821957" type="Player">
+                    <param id="0" name="Range">Player.Width</param>
+                </action>
+                <action id="-2" name="Set Y" sid="524790891974498" type="ScreenShaker">
+                    <param id="0" name="Y">LayoutHeight - (OriginalWindowHeight / 2)</param>
+                </action>
+                <action id="5" name="Set web font" sid="675627727489299" type="NumberBarrier">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="140281340907722" type="Score">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
+                </action>
+                <action id="5" name="Set web font" sid="387611300618856" type="TextFTUE">
+                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
+                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
                 </action>
             </actions>
         </event-block>
+        <event-block sid="476365305877891">
+            <conditions>
+                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="925215765882434" type="Player">
+                    <param id="0" name="Object">BallsBlue</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="978028900603954" type="BallsBlue">
+                    <param id="0" name="Acceleration">5000</param>
+                    <param id="1" name="X">Player.X</param>
+                    <param id="2" name="Y">Player.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="766296014295479" title="FTUE2">
+            <sub-events>
+                <event-block sid="855706033314560">
+                    <conditions>
+                        <condition id="0" name="On any touch start" sid="120363934129510" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="992150051004929" type="TextFTUE">
+                            <param id="0" name="Instance variable">enabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="913644010880844" type="TextFTUE">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <variable constant="0" name="StatePlayer2" sid="116707024927733" static="0" type="number">0</variable>
         <variable constant="0" name="BillesFever2" sid="221517039848223" static="0" type="number">0</variable>
         <variable constant="0" name="Billes2" sid="993936885660771" static="0" type="number">0</variable>
@@ -74,31 +127,43 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="194236621820510">
+                <event-block sid="241830804198539">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="176885873985925" type="Player">
+                        <condition id="0" name="On collision with another object" sid="759888917447113" type="Player">
                             <param id="0" name="Object">BallsEnnemy</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="961974477643646" type="System">
-                            <param id="0" name="Variable">Billes</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="988540284069565" type="System">
-                            <param id="0" name="Variable">StatePlayer</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Subtract from" sid="933029399768534" type="System">
-                            <param id="0" name="Variable">Billes</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="0" name="Set text" sid="995459344578737" type="Score">
-                            <param id="0" name="Text">billes</param>
+                        <action id="4" name="Set animation" sid="448131534416507" type="ScoreBilleBlue">
+                            <param id="0" name="Animation">&quot;BadHit&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="806806016977729">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="913863070958616" type="System">
+                                    <param id="0" name="First value">Billes</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="546659843275768" type="System">
+                                    <param id="0" name="Variable">StatePlayer</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="766018214841340" type="System">
+                                    <param id="0" name="Variable">Billes</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="596344421481435" type="Score">
+                                    <param id="0" name="Text">billes</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -159,56 +224,6 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="331225046842794">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="834682183164983" type="System" />
-            </conditions>
-            <actions>
-                <action id="-6" name="Scroll to Y" sid="348416214864110" type="System">
-                    <param id="0" name="Y">Player.Y</param>
-                </action>
-                <action id="-9" name="Set value" sid="222751862069625" type="System">
-                    <param id="0" name="Variable">Billes</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="-9" name="Set value" sid="886012924670378" type="System">
-                    <param id="0" name="Variable">StatePlayer</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action behavior="LineOfSight" id="0" name="Set range" sid="792337641821957" type="Player">
-                    <param id="0" name="Range">Player.Width</param>
-                </action>
-                <action id="-2" name="Set Y" sid="524790891974498" type="ScreenShaker">
-                    <param id="0" name="Y">LayoutHeight - (OriginalWindowHeight / 2)</param>
-                </action>
-                <action id="5" name="Set web font" sid="675627727489299" type="NumberBarrier">
-                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
-                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
-                </action>
-                <action id="5" name="Set web font" sid="140281340907722" type="Score">
-                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
-                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
-                </action>
-                <action id="5" name="Set web font" sid="387611300618856" type="TextFTUE">
-                    <param id="0" name="Family name">&quot;alfa_slab_oneregular&quot;</param>
-                    <param id="1" name="CSS URL">&quot;stylesheet.css&quot;</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="476365305877891">
-            <conditions>
-                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="925215765882434" type="Player">
-                    <param id="0" name="Object">BallsBlue</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="978028900603954" type="BallsBlue">
-                    <param id="0" name="Acceleration">5000</param>
-                    <param id="1" name="X">Player.X</param>
-                    <param id="2" name="Y">Player.Y</param>
-                </action>
-            </actions>
-        </event-block>
         <variable comment="Temps apres animation" constant="1" name="TIME_FINAL2" sid="408585726482152" static="0" type="number">1</variable>
         <variable constant="0" name="FREQUENCY_ANIMATION_VICTORY2" sid="672252805409575" static="0" type="number">0.07</variable>
         <variable constant="0" name="DELAY_VICTORY_ANIMATION2" sid="920758357226804" static="0" type="number">1.5</variable>
@@ -667,156 +682,202 @@
             </sub-events>
         </event-group>
         <comment>Pass in fever mode</comment>
-        <event-group description="" sid="769612849671369" title="Animation2" />
-        <event-block sid="694630862643711">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="508994037801846" type="System">
-                    <param id="0" name="Variable">StatePlayer</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="272447502742643" type="Player">
-                    <param id="0" name="Instance variable">feverOn</param>
-                </condition>
-                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="955746677715983" type="Player">
-                    <param id="0" name="Instance variable">HitByGreyBall</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="814944289332459" type="Player">
-                    <param id="0" name="Animation">&quot;normal&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="584298563896017">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="948224733175869" type="System">
-                    <param id="0" name="Variable">StatePlayer</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-                <condition id="-8" name="Is boolean instance variable set" sid="213825941009202" type="Player">
-                    <param id="0" name="Instance variable">feverOn</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="701249945836723" type="Player">
-                    <param id="0" name="Animation">&quot;feverEnd&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="271287023168202">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="457200613179798" type="System">
-                    <param id="0" name="Variable">StatePlayer</param>
-                    <param id="1" name="Comparison">4</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-                <condition id="-8" name="Is boolean instance variable set" sid="744743058555248" type="Player">
-                    <param id="0" name="Instance variable">feverOn</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="583367961574383" type="Player">
-                    <param id="0" name="Animation">&quot;fever&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="229390277880170">
-            <conditions>
-                <condition id="4" name="On finished" sid="445747659173257" type="Player">
-                    <param id="0" name="Animation">&quot;feverEnd&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="523838474092837" type="Player">
-                    <param id="0" name="Instance variable">feverOn</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="6" name="Stop" sid="910842619517832" type="Audio">
-                    <param id="0" name="Tag">&quot;fever&quot;</param>
-                </action>
-                <action id="0" name="Play" sid="817105233656003" type="Audio">
-                    <param id="0" name="Audio file">Level1</param>
-                    <param id="2" name="Loop">1</param>
-                    <param id="3" name="Volume">-5</param>
-                    <param id="1" name="Tag (optional)">&quot;main&quot;</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-group description="" sid="799858226614145" title="EnnemyBalls2" />
-        <event-block sid="882292784991637">
-            <conditions>
-                <condition id="-11" name="For Each" sid="338691173261851" type="System">
-                    <param id="0" name="Object">BallsEnnemy</param>
-                </condition>
-            </conditions>
-            <actions />
+        <event-group description="" sid="769612849671369" title="Animation2">
             <sub-events>
-                <event-block sid="628379171938114">
+                <event-block sid="694630862643711">
                     <conditions>
-                        <condition id="-9" name="Is visible" sid="705813486652131" type="BallsEnnemy" />
-                        <condition id="-8" name="Is boolean instance variable set" sid="538621205004841" type="BallsEnnemy">
-                            <param id="0" name="Instance variable">Ejected</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="218388840131858" type="BallsEnnemy" />
-                    </actions>
-                </event-block>
-                <event-block sid="181188232740235">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="736679762844422" type="BallsEnnemy">
-                            <param id="0" name="Object">Player</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="203713689443816" type="System">
+                        <condition id="-14" name="Compare variable" sid="508994037801846" type="System">
                             <param id="0" name="Variable">StatePlayer</param>
-                            <param id="1" name="Comparison">3</param>
+                            <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">0</param>
                         </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="272447502742643" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="955746677715983" type="Player">
+                            <param id="0" name="Instance variable">HitByGreyBall</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="213946728235241" type="BallsEnnemy" />
-                        <action id="-13" name="Set boolean" sid="653472907785931" type="Player">
-                            <param id="0" name="Instance variable">HitByGreyBall</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="503469553645619" type="Player">
-                            <param id="0" name="Animation">&quot;hit&quot;</param>
+                        <action id="4" name="Set animation" sid="814944289332459" type="Player">
+                            <param id="0" name="Animation">&quot;normal&quot;</param>
                             <param id="1" name="From">1</param>
                         </action>
-                        <action id="0" name="Play" sid="546938110407753" type="Audio">
-                            <param id="0" name="Audio file">hit</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                    </actions>
+                </event-block>
+                <event-block sid="584298563896017">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="948224733175869" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="213825941009202" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="701249945836723" type="Player">
+                            <param id="0" name="Animation">&quot;feverEnd&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
-                        <action behavior="LineOfSight" id="0" name="Set range" sid="980750180109105" type="Player">
-                            <param id="0" name="Range">Player.Width</param>
+                    </actions>
+                </event-block>
+                <event-block sid="271287023168202">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="457200613179798" type="System">
+                            <param id="0" name="Variable">StatePlayer</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="744743058555248" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="583367961574383" type="Player">
+                            <param id="0" name="Animation">&quot;fever&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
-                        <action id="-9" name="Set value" sid="229416519660388" type="System">
-                            <param id="0" name="Variable">BillesFever</param>
+                    </actions>
+                </event-block>
+                <event-block sid="229390277880170">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="445747659173257" type="Player">
+                            <param id="0" name="Animation">&quot;feverEnd&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="523838474092837" type="Player">
+                            <param id="0" name="Instance variable">feverOn</param>
                             <param id="1" name="Value">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="869258132128644" type="System">
-                            <param id="0" name="Seconds">1</param>
+                        <action id="6" name="Stop" sid="910842619517832" type="Audio">
+                            <param id="0" name="Tag">&quot;fever&quot;</param>
                         </action>
-                        <action id="-13" name="Set boolean" sid="745087194445170" type="Player">
-                            <param id="0" name="Instance variable">HitByGreyBall</param>
-                            <param id="1" name="Value">0</param>
+                        <action id="0" name="Play" sid="817105233656003" type="Audio">
+                            <param id="0" name="Audio file">Level1</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;main&quot;</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
+        <event-group description="" sid="799858226614145" title="EnnemyBalls2">
+            <sub-events>
+                <event-block sid="882292784991637">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="338691173261851" type="System">
+                            <param id="0" name="Object">BallsEnnemy</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="628379171938114">
+                            <conditions>
+                                <condition id="-9" name="Is visible" sid="705813486652131" type="BallsEnnemy" />
+                                <condition id="-8" name="Is boolean instance variable set" sid="538621205004841" type="BallsEnnemy">
+                                    <param id="0" name="Instance variable">Ejected</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="218388840131858" type="BallsEnnemy" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="181188232740235">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="736679762844422" type="BallsEnnemy">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="203713689443816" type="System">
+                                    <param id="0" name="Variable">StatePlayer</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="213946728235241" type="BallsEnnemy" />
+                                <action id="-13" name="Set boolean" sid="653472907785931" type="Player">
+                                    <param id="0" name="Instance variable">HitByGreyBall</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="503469553645619" type="Player">
+                                    <param id="0" name="Animation">&quot;hit&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="546938110407753" type="Audio">
+                                    <param id="0" name="Audio file">hit</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action behavior="LineOfSight" id="0" name="Set range" sid="980750180109105" type="Player">
+                                    <param id="0" name="Range">Player.Width</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="229416519660388" type="System">
+                                    <param id="0" name="Variable">BillesFever</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="869258132128644" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="745087194445170" type="Player">
+                                    <param id="0" name="Instance variable">HitByGreyBall</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <variable constant="0" name="Speed_Normal2" sid="721474080165212" static="0" type="number">40</variable>
         <variable constant="0" name="Speed_Fever2" sid="599515308485901" static="0" type="number">60</variable>
         <variable constant="1" name="COEFF_BILLES_SPEED2" sid="592556342344708" static="0" type="number">0.06</variable>
         <event-group description="" sid="503441954716728" title="Camera2">
             <sub-events>
+                <event-block sid="961805433101036">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="550924764533593" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="428687342090324">
+                            <conditions>
+                                <condition disabled="1" id="-8" inverted="1" name="Is boolean instance variable set" sid="654912755878500" type="TextFTUE">
+                                    <param id="0" name="Instance variable">enabled</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="376983509979860">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="307834916011664" type="Player">
+                                            <param id="0" name="Instance variable">feverOn</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Set Y" sid="845532316401335" type="ScreenShaker">
+                                            <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="381515169857635">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="338988091103787" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-2" name="Set Y" sid="495269934523165" type="ScreenShaker">
+                                            <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="738114709241109">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="416901937803818" type="Player">
@@ -834,46 +895,6 @@
             </sub-events>
         </event-group>
         <comment>While textFTUE is not enabled, camera doesn&apos;t move</comment>
-        <event-block sid="961805433101036">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="550924764533593" type="System" />
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="428687342090324">
-                    <conditions>
-                        <condition disabled="1" id="-8" inverted="1" name="Is boolean instance variable set" sid="654912755878500" type="TextFTUE">
-                            <param id="0" name="Instance variable">enabled</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="376983509979860">
-                            <conditions>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="307834916011664" type="Player">
-                                    <param id="0" name="Instance variable">feverOn</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Set Y" sid="845532316401335" type="ScreenShaker">
-                                    <param id="0" name="Y">ScreenShaker.Y - Speed_Normal * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="381515169857635">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="338988091103787" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Set Y" sid="495269934523165" type="ScreenShaker">
-                                    <param id="0" name="Y">ScreenShaker.Y - Speed_Fever * dt * (COEFF_BILLES_SPEED * Billes+1)</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
-        </event-block>
         <event-group description="" sid="276723835324848" title="Area2">
             <sub-events>
                 <event-block sid="112675211607788">
@@ -884,24 +905,6 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="442496690960504" type="Background_01" />
-                        <action id="0" name="Play" sid="789957511661326" type="Audio">
-                            <param id="0" name="Audio file">choc_barriere</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action id="0" name="Play" sid="269615348328590" type="Audio">
-                            <param id="0" name="Audio file">choc_barriere</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action id="0" name="Play" sid="954804618284241" type="Audio">
-                            <param id="0" name="Audio file">choc_barriere</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
                     </actions>
                 </event-block>
             </sub-events>
