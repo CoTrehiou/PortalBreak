@@ -307,37 +307,10 @@
                         <action id="-16" name="Wait" sid="668724961636830" type="System">
                             <param id="0" name="Seconds">TIME_FINAL</param>
                         </action>
+                        <action id="-2" name="Go to layout" sid="601297029285744" type="System">
+                            <param id="0" name="Layout">Layout 3</param>
+                        </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="317519040010151">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="205022238192668" type="System">
-                                    <param id="0" name="First value">LayoutName</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">&quot;Layout 1&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Go to layout" sid="601297029285744" type="System">
-                                    <param id="0" name="Layout">Layout 3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="113496069466640">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="946393486379081" type="System">
-                                    <param id="0" name="First value">LayoutName</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">&quot;Layout 3&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Go to layout" sid="755303645583944" type="System">
-                                    <param id="0" name="Layout">Layout 2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
